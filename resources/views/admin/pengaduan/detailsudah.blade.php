@@ -92,11 +92,16 @@
       
   
   </main>
-   <div class=" text-center justify-center my-6 ">
+  @if ($ite->status == "sudah di proses")
+
+  @else
+  <div class=" text-center justify-center my-6 ">
     <a href="{{ route('tanggapan.show',$ite->id) }}"
       class="btn btn-warning px-3 py-3">
       Berikan Tanggapan
     </a>
   </div>
+  @endif
+   
   @endforeach
 @endsection

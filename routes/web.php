@@ -43,7 +43,8 @@ Route::group(['middleware' => ['admin']], function () {
     Route::resource('admin/daftar-masyarakat', daftarmasyarakatController::class);
     Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
     Route::get('admin/laporan', [laporanController::class, 'index']);
-    // Route::get('/dashboard', 'dashboardController@index')->name('dashboard');
+    Route::get('admin/pdf/', [laporanController::class, 'pdf']);
+    // Route::get('/pdf', 'dashboardController@index')->name('dashboard');
 });
 Route::get('/home', 'HomeController::class@index')->name('home');
 

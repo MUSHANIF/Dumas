@@ -13,6 +13,10 @@
 </div>
 </form>
 @endsection
+@section("button")
+<a href="{{ url('/admin/pdf') }}" class="d-none d-sm-inline-block btn btn-sm text-white  shadow-sm" style="background-color: #ff9106;"><i
+    class="fas fa-download fa-sm text-white"></i>Download PDF</a>
+@endsection
 @section('isi')
 <div class="container">
     
@@ -59,11 +63,7 @@
                 </td>
                 <td class="text-center justify-content-center align-self-center ">
                     <div class="row">
-                       <div class="col">
-                        <form method="GET" action="">
-                            <button class="btn btn-info" >Donwload PDF</button>
-                        </form>
-                       </div>
+                      
                 <div class="col">
                     <form method="GET" action="{{ route('index-sudah.show', $key->id )}}">
                         <button class="btn btn-info" >Lihat Detail</button>
