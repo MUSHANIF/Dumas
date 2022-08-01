@@ -5,20 +5,26 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
 	<script src="https://kit.fontawesome.com/a81368914c.js"></script>
-   
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
+    <script src="https://cdn.statically.io/gh/devanka761/notipin/v1.24.49/all.js"></script>
 </head>
 <body>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-          <ul>
+    
+    {{-- @if ($errors->any())
+    <template id="my-template">
+        <swal-title>
             @foreach($errors->all() as $error)
-            <li>{{ $error }} </li>
+            {{ $error }} 
             @endforeach
-          </ul>
-        </div>
-        @endif
+        </swal-title>
+        <swal-icon type="warning" color="red"></swal-icon>
+        <swal-param name="allowEscapeKey" value="false" />
+  <swal-param
+    name="customClass"
+    value='{ "popup": "my-popup" }' />
+      </template>
+        @endif --}}
 	<img class="wave" src="{{ asset('assets/wave.png') }}">
 	<div class="container">
 		<div class="img">
@@ -55,6 +61,13 @@
             </form>
         </div>
     </div>
+   
+    <script>
+        @foreach($errors->all() as $error)
+            Notipin.Alert({msg: " {{ $error }} "});
+        @endforeach
+       
+    </script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

@@ -26,8 +26,10 @@ class RegisterController extends Controller
     protected function redirectTo()
     {
         if (auth()->user()->level == 'ADMIN') {
+            toastr()->success('Salam sehat!', 'Selamat datang admin!');
             return '/dashboard';
         }
+        toastr()->success('Selamat datang!', 'Halo');
         return '/pengaduan/home';
     }
     /**
@@ -57,7 +59,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'nik' => ['required', 'string', 'min:16'],
+            'nik' => ['required', 'string', 'min:16','unique:users'],
             'name' => ['required', 'string', 'max:255','unique:users'],
             'hp' => ['required', 'string', 'min:11'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -82,5 +84,6 @@ class RegisterController extends Controller
             'level' => $data['level'],
             'password' => Hash::make($data['password']),
         ]);
+        
     }
 }

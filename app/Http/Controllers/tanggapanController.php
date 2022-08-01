@@ -63,7 +63,7 @@ class tanggapanController extends Controller
        
 
        
-      
+        toastr()->success('Berhasil di tanggapi!', 'Selamat');
         return redirect('admin/pengaduan');
     }
 

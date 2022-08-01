@@ -31,7 +31,7 @@
                 Selamat Datang,{{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{{ route('dashboard') }}">Admin</a></li>
+                <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

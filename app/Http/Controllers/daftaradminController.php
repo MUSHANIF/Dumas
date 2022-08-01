@@ -33,7 +33,10 @@ class daftaradminController extends Controller
      */
     public function create()
     {
-        return view('admin.admin.create');
+        return view('admin.admin.create',[
+            'pending' => pengaduan::where('status', 'belum di Proses')->count(),
+            'success' => pengaduan::where('status', 'sudah di proses')->count(),
+        ]);
     }
 
     /**
@@ -56,6 +59,7 @@ class daftaradminController extends Controller
         $model->password = $encrypted_password;
         
         $model->save();
+        toastr()->success('Berhasil di buat!', 'Sukses');
         return redirect('admin/daftar-admin');
     }
 
@@ -79,7 +83,10 @@ class daftaradminController extends Controller
     public function edit( $id)
     {
         $datas = User::find($id);
-        return view('admin.admin.ubah', compact('datas'));
+        return view('admin.admin.ubah', compact('datas'),[
+            'pending' => pengaduan::where('status', 'belum di Proses')->count(),
+            'success' => pengaduan::where('status', 'sudah di proses')->count(),
+        ]);
     }
 
     /**
@@ -99,7 +106,7 @@ class daftaradminController extends Controller
         
         
         $model->save();
-
+        toastr()->success('Berhasil di terupdate!', 'Sukses');
         return redirect('admin/daftar-admin');
     }
 
@@ -113,6 +120,7 @@ class daftaradminController extends Controller
     {
         $kantin = User::find($id);
         $kantin->delete();
+        toastr()->info('Berhasil di hapus!', 'Sukses');
         return redirect('admin/daftar-admin');
     }
 }
