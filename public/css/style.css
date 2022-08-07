@@ -28,8 +28,11 @@ body {
 
 .img {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
+    float: center;
+    margin-left: 100px;
     align-items: center;
+    width: 400px;
 }
 
 .login-content {
@@ -104,7 +107,7 @@ form {
     bottom: -2px;
     width: 0%;
     height: 2px;
-    background-color: #38d39f;
+    background-color: #814096;
     transition: 0.4s;
 }
 
@@ -127,7 +130,7 @@ form {
 }
 
 .input-div.focus > .i > i {
-    color: #38d39f;
+    color: #814096;
 }
 
 .input-div > div > input {
@@ -167,7 +170,7 @@ a {
 }
 
 a:hover {
-    color: #38d39f;
+    color: #f83292;
 }
 
 .btn {
@@ -177,7 +180,7 @@ a:hover {
     border-radius: 25px;
     outline: none;
     border: none;
-    background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+    background-image: linear-gradient(90deg,#814096, #f83292);
     background-size: 200%;
     font-size: 1.2rem;
     color: #fff;

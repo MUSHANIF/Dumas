@@ -1,3 +1,6 @@
+<?php
+$tanggal = date("Y-m-d");
+?>
 @extends('admin.home')
 @section('search')
 <form action="{{ url('admin/product/'.Auth::user()->StoreID) }}" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -14,14 +17,64 @@
 </form>
 @endsection
 @section("button")
-<a href="{{ url('/admin/pdf') }}" class="d-none d-sm-inline-block btn btn-sm text-white  shadow-sm" style="background-color: #ff9106;"><i
-    class="fas fa-download fa-sm text-white"></i>Download PDF</a>
+<div class="container" >
+    <div class="row" >
+        <div class="col-sm-6">
+
+      
+            <form action="{{ url('/admin/pdf') }}" method="GET">
+                @csrf
+                <br>
+               
+                        <div class="container-fluid">
+                            <div class="form-group row" >
+            
+                                <div class="col">
+                                    <input type="date" class="form-control input-sm" name="tgl" id="toDate" value="<?= $tanggal ?>" required >
+                                </div>
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary" name="search" title="Search">Download Data</button>
+                                </div>
+                            </div>
+                        </div>
+             
+                
+            </form>
+</div>
+<div class="col-sm-4">
+
+
+    
+    <form action="{{ url('/admin/laporan') }}" method="GET">
+        @csrf
+        <br>
+       
+                <div class="container-fluid">
+                    <div class="form-group row" >
+    
+                        <div class="col">
+                            <input type="date" class="form-control input-sm" name="tgl" id="toDate" value="<?= $tanggal ?>" required >
+                        </div>
+                        <div class="col">
+                            <button type="submit" class="btn btn-primary" name="search" title="Search">Cari Data</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+  
+
 @endsection
 @section('isi')
 <div class="container">
     
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
-        List aduan sudah selesai
+        List aduan sudah selesai 
+      
+    
+    
       </h2>
     <table class="table mt-3" cellpadding="10" cellspace="0">
         <thead class="align-self-center text-center">

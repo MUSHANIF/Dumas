@@ -1,3 +1,6 @@
+<?php
+$tanggal = date("Y-m-d");
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,13 +15,19 @@
         /* ---- particles.js container ---- */ 
         #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #ffffff; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #0078AA; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
       </style>
-    <title>Hello, world!</title>
+    <title>Dumas | Form Pengaduan</title>
+    <style>
+      nav {
+        /* background-image: linear-gradient(90deg,#814096, #f83292); */
+        color: white;
+      }
+    </style>
   </head>
   <body>
      @include('sweetalert::alert')
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
         <div class="container">
-          <a class="navbar-brand" href="#">Navbar</a>
+          <a class="navbar-brand" href="#">Dumas</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -54,22 +63,55 @@
         <form action="{{ url('pengaduan/home') }}" method="POST" enctype="multipart/form-data">
             @csrf
         <div class="row">
-            <div class="mb-3">
+        
                 <input class="form-control" type="hidden" name="id" value="{{ Auth::user()->id }}"  id="formFile">
                 <input class="form-control" type="hidden" name="name" value="{{ Auth::user()->name }}"  id="formFile">
-                <input class="form-control" type="hidden" name="status" value="belum di proses"  id="formFile">
-                <label for="exampleFormControlTextarea1" class="form-label">Keluhan</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" name="pengaduan" rows="3"></textarea>
-              </div>
+                <input class="form-control" type="hidden" name="tgl" value="{{ $tanggal }}"  id="formFile">
+                <div class="row">
+                  <div class="col-md-6">
+                    <label for="exampleFormControlTextarea1" class="form-label">Nik</label>
+                    <input class="form-control" type="text" disabled name="nik" value="{{ Auth::user()->nik }}"  id="formFile">
+                  </div>
+                 <div class="col-md-6">
+                  <label for="exampleFormControlTextarea1" class="form-label">Nama</label>
+                  <input class="form-control"  type="text" disabled  value="{{ Auth::user()->name }}"  id="formFile">
+                 </div>
+                </div>
+               
+               <div class="row">
+                <div class="col-md-6">
+                  <label for="exampleFormControlTextarea1" class="form-label">Email</label>
+                  <input class="form-control" type="text" disabled name="nik" value="{{ Auth::user()->email }}"  id="formFile">
+                </div>
+                <div class="col-md-6">
+                  <label for="exampleFormControlTextarea1" class="form-label">No Handphone</label>
+                  <input class="form-control" type="text" disabled name="hp" value="{{ Auth::user()->hp }}"  id="formFile">
+                  <input class="form-control" type="hidden" name="status" value="belum di proses"  id="formFile">
+                </div>
+                
+                
+               </div>
+                <div class="row">
+                  <div class="col">
+                    <label for="exampleFormControlTextarea1" class="form-label">Keluhan</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" name="pengaduan" rows="3"></textarea>
+                  </div>
+                </div>
+                
+           
         </div>
         <div class="row">
-            <div class="mb-3">
-                <label for="formFile" class="form-label">Foto Bukti</label>
-                <input class="form-control" type="file" name="image" id="image">
-                <img id="preview-image-before-upload" src="" alt="" style="width: 250px" class="mt-3">
-              </div>
+          <div class="col">
+            
+              <label for="formFile" class="form-label">Foto Bukti</label>
+              <input class="form-control" type="file" name="image" id="image">
+              <img id="preview-image-before-upload" src="" alt="" style="width: 250px" class="mt-3">
+          
+          </div>
+           
         </div>
-        <button type="submit" class="btn btn-primary">Kirim</button>
+        <button type="submit" class="btn btn-primary mt-4">Kirim</button>
+        <button type="reset" class="btn btn-danger mt-4">Reset Pengaduan</button>
     </form>
       </div>
 

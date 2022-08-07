@@ -204,31 +204,31 @@
             <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ route('dashboard') }}">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-collection"></i>
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/pengaduan">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-shield-exclamation"></i>
                     <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-warning float-end">{{ $pending }}</span>
                     <span>Pengaduan</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="/admin/daftar-masyarakat">
-                    <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-people-fill"></i>
                     <span>List masyarakat</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/daftar-admin">
                     
-                <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-person-fill"></i>
                     <span>Admin</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin/laporan">
                     
-                <i class="bi bi-currency-dollar"></i>
+                    <i class="bi bi-check-square-fill"></i>
                 <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-warning float-end">{{ $success }}</span>
                     <span>Laporan Harian</span></a>
                     
@@ -312,8 +312,9 @@
                                 
                                 <a class="dropdown-item" href="/" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Kembali
+                                  Home
                                 </a>
+                               
                             </div>
                         </li>
 
@@ -366,10 +367,17 @@
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                  </form>
                 <div class="modal-body">Yakin mau keluar?.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="/">Kembali</a>
+                   <a class="btn btn-primary" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+               </a>
+                    <a class="btn btn-primary" href="/">Kembali ke Home</a>
                 </div>
             </div>
         </div>

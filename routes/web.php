@@ -24,7 +24,7 @@ use App\Http\Controllers\sudahController;
 */
 
 Route::get('/', function () {
-    return view('landing');
+    return view('welcome');
 });
 
 Auth::routes();

@@ -46,6 +46,7 @@ class pengaduanController extends Controller
         $model->name = $request->name;
         $model->image = $request->image;
         $model->status = $request->status;
+        $model->created_at = $request->tgl;
         // if ($request->hasFile('image')) {
         //     $imageName = rand(11111, 99999) . '.' . $request->file('image')->getClientOriginalExtension();
         //     $destinationPath = 'assets/images/bukti';
@@ -58,7 +59,7 @@ class pengaduanController extends Controller
             $model['image'] = "$profileImage";
         }
         $model->save();
-
+        toastr()->success('Berhasil di tambah!', 'Terima kasih pengaduan sudah di terima');
         return redirect('pengaduan/home');
     }
 

@@ -85,7 +85,7 @@
 				$i = 1;
 			@endphp
 			@foreach ($pengaduan as $key) 
-			@if ($key->status == "sudah di proses")
+			@if ($key->status == "sudah di proses"  )
 			<tbody>
 				
 				<tr class="align-self-center text-center" style="border: 1px solid black;">
