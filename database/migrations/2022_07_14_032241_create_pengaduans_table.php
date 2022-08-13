@@ -18,9 +18,9 @@ class CreatePengaduansTable extends Migration
             $table->integer('userID')->nullable();
             $table->string('name');
             $table->string('laporan');
-            $table->string('nmage')->nullable();
+            $table->string('image')->nullable();
             $table->string('status');
-            $table->date('update');
+            $table->date('update')->nullable();
             $table->timestamps();
         });
     }
