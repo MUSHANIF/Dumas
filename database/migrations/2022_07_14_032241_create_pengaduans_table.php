@@ -20,6 +20,7 @@ class CreatePengaduansTable extends Migration
             $table->string('laporan');
             $table->string('nmage')->nullable();
             $table->string('status');
+            $table->date('update');
             $table->timestamps();
         });
     }

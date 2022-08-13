@@ -18,6 +18,7 @@ class CreateTanggapansTable extends Migration
             $table->integer('pengaduanID')->nullable();
             $table->string('tanggapan');
             $table->timestamps();
+            $table->date('update');
         });
     }
 
