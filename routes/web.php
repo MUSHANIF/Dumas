@@ -8,6 +8,7 @@ use App\Http\Controllers\daftarmasyarakatController;
 use App\Http\Controllers\pengaduanController;
 use App\Http\Controllers\pengaduanadminController;
 use App\Http\Controllers\tanggapanController;
+use App\Http\Controllers\tanggapanuserController;
 use App\Http\Controllers\laporanController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
@@ -30,6 +31,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::group(['middleware' => ['user']], function () {
     Route::resource('pengaduan/home', pengaduanController::class);
+    Route::resource('tanggapanuser', tanggapanuserController::class);
 });
 Route::group(['middleware' => ['admin']], function () {
     Route::resource('admin/home', adminController::class);

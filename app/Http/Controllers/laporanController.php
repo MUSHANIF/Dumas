@@ -49,5 +49,6 @@ class laporanController extends Controller
     return $pdf->download('laporan.pdf');
      
 
+
     }
 }

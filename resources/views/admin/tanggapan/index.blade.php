@@ -1,33 +1,70 @@
+<?php
+$tanggal = date("Y-m-d");
+?>
 @extends('admin.home')
 @section('isi')
-
-  <div class="container" style="position: relative;">
+@empty($datas->tanggapans->pengaduanID)
+<div class="container" style="position: relative;">
     
-    <form action="{{ route('tanggapan.store') }}" method="POST" enctype="multipart/form-data">
-        @csrf
-    <div class="row">
-        <div class="col mb-3">
-            <input class="form-control" type="hidden" name="id" value="{{ $datas->id }}"  id="formFile">
-           
-            <input class="form-control" type="hidden" name="status" value="belum di proses"  id="formFile">
-            <label for="exampleFormControlTextarea1" class="form-label">Tanggapan</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" name="laporan" rows="3" required></textarea>
-          </div>
-    </div>
-    <div class="row">
-        <div class="mb-3">
-            <label for="formFile" class="form-label">Pilih status</label>
-            <select class="form-select" aria-label="Default select example" name="opsi" required>
-              
-              <option value="sedang di proses">Sedang di proses</option>
-              <option value="sudah di proses">Sudah di proses</option>
-  
-            </select>
-          </div>
-    </div>
-    <button type="submit" class="btn btn-primary">Kirim</button>
-</form>
+  <form action="{{ route('tanggapan.store') }}" method="POST" enctype="multipart/form-data">
+      @csrf
+  <div class="row">
+      <div class="col mb-3">
+          <input class="form-control" type="hidden" name="id" value="{{ $datas->id }}"  id="formFile">
+          <input class="form-control" type="hidden" name="tgl" value="{{ $tanggal }}"  id="formFile">
+          <input class="form-control" type="hidden" name="status" value="belum di proses"  id="formFile">
+          <label for="exampleFormControlTextarea1" class="form-label">Tanggapan</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" name="laporan" rows="3" required></textarea>
+        </div>
   </div>
+  <div class="row">
+      <div class="mb-3">
+          <label for="formFile" class="form-label">Pilih status</label>
+          <select class="form-select" aria-label="Default select example" name="opsi" required>
+
+            <option value="sedang di proses">Sedang di proses</option>
+            <option value="sudah di proses">Sudah di proses</option>
+
+          </select>
+        </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Kirim</button>
+</form>
+</div>
+
+
+@else
+<div class="container" style="position: relative;">
+    
+  <form action="{{ route('tanggapan.update',$datas->id) }}" method="POST">
+      
+      @csrf
+      <input type="hidden" name="_method" value="PATCH">
+  <div class="row">
+      <div class="col mb-3">
+          <input class="form-control" type="hidden" name="id" value="{{ $datas->id }}"  id="formFile">
+          <input class="form-control" type="hidden" name="tgl" value="{{ $tanggal }}"  id="formFile">
+          <input class="form-control" type="hidden" name="status" value="belum di proses"  id="formFile">
+          <label for="exampleFormControlTextarea1" class="form-label">Tanggapan ubah</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" name="laporan" rows="3" required></textarea>
+        </div>
+  </div>
+  <div class="row">
+      <div class="mb-3">
+          <label for="formFile" class="form-label">Pilih status</label>
+          <select class="form-select" aria-label="Default select example" name="opsi" required>
+            
+            <option value="sedang di proses">Sedang di proses</option>
+            <option value="sudah di proses">Sudah di proses</option>
+
+          </select>
+        </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Kirim</button>
+</form>
+</div>
+@endempty
+  
 
 <!-- Optional JavaScript; choose one of the two! -->
 

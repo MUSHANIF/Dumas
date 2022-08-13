@@ -55,6 +55,7 @@ class daftarmasyarakatController extends Controller
         $model->password = $encrypted_password;
         
         $model->save();
+        toastr()->success('Berhasil di buat!', 'Sukses');
         return redirect('admin/daftar-masyarakat');
     }
 
@@ -78,7 +79,10 @@ class daftarmasyarakatController extends Controller
     public function edit( $id)
     {
         $datas = User::find($id);
-        return view('admin.admin.ubah', compact('datas'));
+        return view('admin.masyarakat.ubah', compact('datas'),[
+            'pending' => pengaduan::where('status', 'belum di Proses')->count(),
+            'success' => pengaduan::where('status', 'sudah di proses')->count(),
+        ]);
     }
 
     /**
@@ -95,10 +99,11 @@ class daftarmasyarakatController extends Controller
         $model->name = $request->name;
         $model->email = $request->email;
         $model->hp = $request->hp;
+        $model->level = $request->opsi;
         
         
         $model->save();
-
+        toastr()->success('Berhasil di terupdate!', 'Sukses');
         return redirect('admin/daftar-masyarakat');
     }
 
@@ -112,6 +117,7 @@ class daftarmasyarakatController extends Controller
     {
         $kantin = User::find($id);
         $kantin->delete();
+        toastr()->success('Berhasil di hapus!', 'Sukses');
         return redirect('admin/daftar-masyarakat');
     }
 }

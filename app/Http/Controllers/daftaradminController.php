@@ -103,6 +103,7 @@ class daftaradminController extends Controller
         $model->name = $request->name;
         $model->email = $request->email;
         $model->hp = $request->hp;
+        $model->level = $request->opsi;
         
         
         $model->save();

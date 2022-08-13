@@ -15,7 +15,7 @@
 @endsection
 @section("button")
 <a href="{{ route('index-sudah.index') }}" class="d-none d-sm-inline-block btn btn-sm text-white  shadow-sm" style="background-color: #ff9106;">
-   Sudah di proses</a>
+   Sedang di proses</a>
 @endsection
 @section('isi')
 <div class="container">
@@ -81,7 +81,7 @@
         </tbody>
         @else
        
-          
+       
         @endif
         
         @endforeach

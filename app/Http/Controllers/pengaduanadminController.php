@@ -72,9 +72,7 @@ class pengaduanadminController extends Controller
         ->where('pengaduanID', '=', $id)
         
         ->get();
-        // return view('admin.pengaduan.detail', compact('datas','item','pengaduan'),[
-        //     'pending' => pengaduan::where('status', 'Belum di Proses')->count(),
-        // ]);
+  
         return view('admin.pengaduan.detail', [
             'pengaduan' => $pengaduan,
             'datas' => $datas,

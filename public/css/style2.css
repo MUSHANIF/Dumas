@@ -18,7 +18,7 @@ body{
   background-size: cover;
   background-position: top right;
   background-repeat: no-repeat;
-  background-size: 110vmax;
+  background-size: 100vmax;
 }
 nav .logo {
   font-size: 23px;
