@@ -59,6 +59,7 @@
                 <h5>Password</h5>
                 <input id="password" type="password" class="input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password" >
                 <input id="level" type="hidden" name="level" value="USER" >
+
         </div>
      </div>
        <div class="input-div pass">

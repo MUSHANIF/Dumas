@@ -28,25 +28,32 @@
     <style>
         * {
             box-sizing: border-box;
+         
         }
-  
+       body{
+        background-color: #2B4865;
+       }
         .table {
             width: 100%;
             border-collapse: collapse;
+            
         }
   
         .table td,
         .table th {
             text-align: center;
+            background-color: #2B4865;
+            color: white;
         }
   
         .table th {
-            background-color: #ff9106;
+            background-color: #256D85;
             color: black;
         }
   
         .table tbody:nth-child(even) {
-            background-color: #f5f5f5;
+            background-color: #2B4865;
+            color: white;
         }
   
         /* Ini Responsivenya */
@@ -61,6 +68,7 @@
             .table td {
                 display: block;
                 width: 100%;
+                background-color: #2B4865;
             }
   
             .table tr {
@@ -167,11 +175,11 @@
         }
   
         .btn {
-            background-color: #ff9106;
+            background-color: #256D85;
             color: white
         }
    
-        body{ margin:0; } canvas{ display: block; vertical-align: bottom; } 
+        body{ margin:0;  background-color: #2B4865; } canvas{ display: block; vertical-align: bottom; } 
         /* ---- particles.js container ---- */ 
         #particles-js{ position:absolute; width: 100%; height: 100%; background-color: #ffffff; background-image: url(""); background-repeat: no-repeat; background-size: cover; background-position: 50% 50%; } /* ---- stats.js ---- */ .count-particles{ background: #000022; position: absolute; top: 48px; left: 0; width: 80px; color: #0078AA; font-size: .8em; text-align: left; text-indent: 4px; line-height: 14px; padding-bottom: 2px; font-family: Helvetica, Arial, sans-serif; font-weight: bold; } .js-count-particles{ font-size: 1.1em; } #stats, .count-particles{ -webkit-user-select: none; margin-top: 5px; margin-left: 5px; } #stats{ border-radius: 3px 3px 0 0; overflow: hidden; } .count-particles{ border-radius: 0 0 3px 3px; }
       </style>
@@ -185,7 +193,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #ff9106; color: black;">
+        <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #256D85; color: black;">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/" style="color: black;">
@@ -218,7 +226,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="/admin/pengaduan">
                     <i class="bi bi-shield-exclamation"></i>
-                    <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-warning float-end">{{ $pending }}</span>
+                    <i class="ri-dashboard-line"></i><span class="badge rounded-pill  float-end" style="background-color: #2B4865;">{{ $pending }}</span>
                     <span>Pengaduan</span></a>
             </li>
 
@@ -237,7 +245,7 @@
                 <a class="nav-link" href="/admin/laporan">
                     
                     <i class="bi bi-check-square-fill"></i>
-                <i class="ri-dashboard-line"></i><span class="badge rounded-pill bg-warning float-end">{{ $success }}</span>
+                <i class="ri-dashboard-line"></i><span class="badge rounded-pill  float-end" style="background-color: #2B4865;">{{ $success }}</span>
                     <span>Laporan Harian</span></a>
                     
             </li>

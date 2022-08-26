@@ -6,7 +6,7 @@
     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
         aria-label="Search" aria-describedby="basic-addon2" name="cari" value="{{ request('cari') }}">
     <div class="input-group-append">
-        <button class="btn" style="background-color: #ff9106;" type="submit">
+        <button class="btn" style="background-color: #256D85;" type="submit">
             <i class="fas fa-search fa-sm text-white"></i>
         </button>
     </div>
@@ -14,7 +14,7 @@
 </form>
 @endsection
 @section("button")
-<a href="{{ route('daftar-admin.create') }}" class="d-none d-sm-inline-block btn btn-sm text-white  shadow-sm" style="background-color: #ff9106;"><i
+<a href="{{ route('daftar-admin.create') }}" class="d-none d-sm-inline-block btn btn-sm text-white  shadow-sm" style="background-color: #256D85;"><i
     class="fas fa-download fa-sm text-white"></i>Tambah</a>
 @endsection
 @section('isi')
