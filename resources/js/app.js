@@ -56,23 +56,6 @@ $(window).on("load", function () {
                     activeNavbar();
                 };
             }
-
-            if ($(window).width() <= 426) {
-                $("#aturSvg").attr("width", "137");
-            } else if ($(window).width() < 751) {
-                $("#aturSvg").attr("width", "172");
-            } else if ($(window).width() <= 974) {
-                $("#aturSvg").attr("width", "285");
-            } else if ($(window).width() < 1183) {
-                $("#aturSvg").attr("width", "225");
-                $("#aturSvg2").attr("width", "275");
-            } else if ($(window).width() >= 1183 && $(window).width() < 1300) {
-                $("#aturSvg").attr("width", "310");
-                $("#aturSvg2").attr("width", "360");
-            } else if ($(window).width() >= 1300) {
-                $("#aturSvg").attr("width", "367");
-                $("#aturSvg2").attr("width", "416");
-            }
         })
         .resize();
 

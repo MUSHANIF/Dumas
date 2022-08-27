@@ -102,8 +102,8 @@
           <h2><b>Cara mengadu!</b></h2>
         </div>
         <div class="row justify-content-center">
-          <div class="col-lg-4 col-6 text-center" data-aos="fade-down"  data-aos-delay="300">
-            <div class="card">
+          <div class="col-lg-4 col-md-6 col-12 mt-3 mt-md-3 text-center" data-aos="fade-down"  data-aos-delay="300">
+            <div class="card mx-auto" style="width: 18rem">
               <svg class="animated" id="freepik_stories-mobile-login" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
                 <style>
                    svg#freepik_stories-mobile-login:not(.animated) .animable {
@@ -561,9 +561,9 @@
               </div>
           </div>
           </div>
-          <div class="col-lg-4 col-6 text-center" data-aos="fade-down"  data-aos-delay="400">
-            <div class="card">
-              <svg class="animated" id="aturSvg" width="365" id="freepik_stories-completed-steps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+          <div class="col-lg-4 col-md-6 col-12 mt-3 mt-md-3 text-center" data-aos="fade-down"  data-aos-delay="400">
+            <div class="card mx-auto" style="width: 18rem">
+              <svg class="animated" class="animated justify-content-center align-items-center mt-2" style="width: 240px; margin-left: 30px;"  id="freepik_stories-completed-steps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
                 <style>
                   svg#freepik_stories-completed-steps:not(.animated) .animable {
                     opacity: 0;
@@ -2080,9 +2080,9 @@
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-6 text-center mt-4 mt-lg-0 " data-aos="fade-down"  data-aos-delay="500">
-            <div class="card">
-              <svg class="animated" id="aturSvg2" id="freepik_stories-urgent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
+          <div class="col-lg-4 col-md-6 col-12 mt-3 mt-md-3 text-center" data-aos="fade-down"  data-aos-delay="500">
+            <div class="card mx-auto" style="width: 18rem">
+              <svg class="animated" id="freepik_stories-urgent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs">
                 <style>
                    svg#freepik_stories-urgent:not(.animated) .animable {
                       opacity: 0;
