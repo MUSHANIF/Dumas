@@ -6,7 +6,7 @@ use App\Models\pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Hashids\Hashids;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class tanggapanuserController extends Controller
 {
@@ -18,8 +18,8 @@ class tanggapanuserController extends Controller
     public function index(Request $request)
     {
         $datas = DB::table('pengaduans')->where('UserID', '=',  Auth::user()->id)->get();
-     
-        return view('pengaduan.tanggapanuser',[
+
+        return view('pengaduan.tanggapanuser', [
             'datas' => $datas,
         ]);
     }
@@ -42,7 +42,6 @@ class tanggapanuserController extends Controller
      */
     public function store(Request $request)
     {
-        
     }
 
     /**
@@ -54,21 +53,21 @@ class tanggapanuserController extends Controller
     public function show(Request $request, $id)
     {
         $item = pengaduan::with([
-            'details','user','tanggapans'
-       ])->findOrFail($id);
-       $datas = DB::table('pengaduans')
-       ->where('id', '=', $id)
-       ->get();
-       $pengaduan =  DB::table('tanggapans')
-       ->where('pengaduanID', '=', $id)
-       ->groupBy('update')
-       ->get();
-    
-       return view('pengaduan.detail', compact('pengaduan'), [
-           'pengaduan' => $pengaduan,
-           'datas' => $datas,
-           'item' => $item,
-       ]);
+            'details', 'user', 'tanggapans'
+        ])->findOrFail($id);
+        $datas = DB::table('pengaduans')
+            ->where('id', '=', $id)
+            ->get();
+        $pengaduan =  DB::table('tanggapans')
+            ->where('pengaduanID', '=', $id)
+            ->groupBy('update')
+            ->get();
+
+        return view('pengaduan.detail', compact('pengaduan'), [
+            'pengaduan' => $pengaduan,
+            'datas' => $datas,
+            'item' => $item,
+        ]);
     }
 
     /**

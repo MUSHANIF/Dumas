@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\pengaduan;
 use Illuminate\Http\Request;
 
 class adminController extends Controller
@@ -14,7 +15,7 @@ class adminController extends Controller
      */
     public function index()
     {
-        return view('admin.home',[
+        return view('admin.home', [
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
         ]);

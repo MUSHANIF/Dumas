@@ -41,7 +41,7 @@ class pengaduanController extends Controller
     {
         $model = new pengaduan;
 
-      
+
         $model->userID = $request->id;
         $model->laporan = $request->pengaduan;
         $model->name = $request->name;
@@ -72,7 +72,6 @@ class pengaduanController extends Controller
      */
     public function show(pengaduan $pengaduan)
     {
-        
     }
 
     /**

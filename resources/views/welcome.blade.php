@@ -56,7 +56,7 @@
                 Selamat Datang,{{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu bg-dark"  aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="pengaduan/home">keluhan!</a></li>
+                <li><a class="dropdown-item" href="pengaduan/home">Keluhan!</a></li>
                 <li><a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">

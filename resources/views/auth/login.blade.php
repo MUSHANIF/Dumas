@@ -13,7 +13,7 @@
            </div>
            <div class="div">
               <h5>Email</h5>
-              <input class="input form-control @error('email') is-invalid @enderror" name="email" type="email" required="" value="{{ old('email') }}" />
+              <input class="input form-control @error('email') is-invalid @enderror" name="email" type="email" required="" value="{{ old('email') }}" autofocus />
            </div>
         </div>
         <div class="input-div pass">
