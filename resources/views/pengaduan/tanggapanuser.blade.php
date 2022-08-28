@@ -9,14 +9,11 @@
 
       <title>Dumas | List aduan</title>
 
-      <!-- Custom fonts for this template-->
       <link href="/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" />
       <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-      <!-- Custom styles for this template-->
       <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-      <link rel="stylesheet" href="{{ asset('./assets/css/tailwind.output.css')}}" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
       <link rel="icon" href="{{ asset('img/favicon.svg')}}" />
       <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet" />
@@ -27,7 +24,6 @@
         }
      
         .navbar {
-           background-color: #2b4865;
            color: white;
            padding-bottom: 20px;
         }
@@ -40,7 +36,6 @@
      
         .table {
            width: 100%;
-           border-collapse: collapse;
         }
      
         .table td,
@@ -50,13 +45,10 @@
         }
      
         .table th {
-           background-color: #256d85;
-           color: black;
+           /* background-color: #00bfff; */
+           border: none;
         }
      
-        .table tbody:nth-child(even) {
-           background-color: #2b4865;
-        }
      
         /* Ini Responsivenya */
         @media (max-width: 768px) {
@@ -160,13 +152,17 @@
         }
      
         .btn {
-           background-color: #256d85;
+           background-color: #2b87a6;
            color: white;
+        }
+
+        .btn:hover {
+           background-color: #227895;
         }
      
         body {
            margin: 0;
-           background-color: #2b4865;
+           background-color: #3e7dbc;
         }
         canvas {
            display: block;
@@ -214,6 +210,11 @@
         .count-particles {
            border-radius: 0 0 3px 3px;
         }
+
+        .navbar > .container > .navbar-brand {
+            color: white;
+            text-shadow: 1px 1px 5px #0078aa;
+         }
      </style>     
       <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
    </head>
@@ -256,33 +257,33 @@
          <div class="container">
             <div class="table-responsive">
                <div class="container">
-                  <h2 class="my-6 text-2xl font-semibold text-center text-white dark:text-white-200">List Aduan Anda</h2>
-                  <table class="table mt-3" cellpadding="10" cellspace="0">
-                     <thead class="align-self-center text-center">
-                        <th>Foto</th>
-                        <th>Nama</th>
-                        <th>Tanggal</th>
-                        <th>Status</th>
-                        <th colspan="2">Action</th>
+                  <h2 class="text-light text-center">List Aduan Anda</h2>
+                  <table class="table mt-3 table-striped text-light table-dark" cellpadding="10" cellspace="0">
+                     <thead class="">
+                        <th class="text-light">Foto</th>
+                        <th class="text-light">Nama</th>
+                        <th class="text-light">Tanggal</th>
+                        <th class="text-light">Status</th>
+                        <th class="text-light" colspan="2">Action</th>
                      </thead>
                      @foreach ($datas as $key)
 
                      <tbody>
-                        <tr class="align-self-center text-center" style="border: 1px solid black">
+                        <tr class="" style="border: 1px solid black">
                            <td data-label="images"><img src="/assets/images/bukti/{{ $key->image }}" style="height: 100px; width: 150px" /></td>
 
                            <td data-label="Name">{{ $key->name }}</td>
                            <td data-label="Tanggal">{{ $key->created_at }}</td>
                            <td data-label="Cost">
                               @if($key->status == 'belum di proses')
-                              <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-md dark:text-red-100 dark:bg-red-700"> {{ $key->status }} </span>
+                              <span class=""> {{ $key->status }} </span>
                               @elseif ($key->status == 'sedang di proses')
-                              <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-md dark:text-white dark:bg-orange-600"> {{ $key->status }} </span>
+                              <span class=""> {{ $key->status }} </span>
                               @else
-                              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-md dark:bg-green-700 dark:text-green-100"> {{ $key->status }} </span>
+                              <span class=""> {{ $key->status }} </span>
                               @endif
                            </td>
-                           <td class="text-center justify-content-center align-self-center">
+                           <td class="">
                               <form method="GET" action="{{ route('tanggapanuser.show', $key->id )}}">
                                  <button class="btn btn-info">lihat detail</button>
                               </form>
@@ -290,7 +291,7 @@
                         </tr>
                         @empty($key)
                         <tr>
-                           <td colspan="7" class="text-center text-gray-400">Data Kosong</td>
+                           <td colspan="7" class="text-center">Data Kosong</td>
                         </tr>
                         @endempty
                      </tbody>
