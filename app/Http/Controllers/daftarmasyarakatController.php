@@ -18,7 +18,7 @@ class daftarmasyarakatController extends Controller
         $cari = $request->cari;
         $datas =  DB::table('users')->where('level', '=', 'USER') ->where('name','like',"%".$cari."%")->get();
        
-        return view('admin.masyarakat.index', [
+        return view('superadmin.masyarakat.index', [
             'datas' => $datas,
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
@@ -33,7 +33,7 @@ class daftarmasyarakatController extends Controller
      */
     public function create()
     {
-        return view('admin.masyarakat.create');
+        return view('superadmin.masyarakat.create');
     }
 
     /**
@@ -56,7 +56,7 @@ class daftarmasyarakatController extends Controller
         
         $model->save();
         toastr()->success('Berhasil di buat!', 'Sukses');
-        return redirect('admin/daftar-masyarakat');
+        return redirect('superadmin/daftar-masyarakat');
     }
 
     /**
@@ -79,7 +79,7 @@ class daftarmasyarakatController extends Controller
     public function edit( $id)
     {
         $datas = User::find($id);
-        return view('admin.masyarakat.ubah', compact('datas'),[
+        return view('superadmin.masyarakat.ubah', compact('datas'),[
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
@@ -104,7 +104,7 @@ class daftarmasyarakatController extends Controller
         
         $model->save();
         toastr()->success('Berhasil di terupdate!', 'Sukses');
-        return redirect('admin/daftar-masyarakat');
+        return redirect('superadmin/daftar-masyarakat');
     }
 
     /**
@@ -118,6 +118,6 @@ class daftarmasyarakatController extends Controller
         $kantin = User::find($id);
         $kantin->delete();
         toastr()->success('Berhasil di hapus!', 'Sukses');
-        return redirect('admin/daftar-masyarakat');
+        return redirect('superadmin/daftar-masyarakat');
     }
 }

@@ -1,6 +1,6 @@
 @extends('admin.home')
 @section('search')
-<form action="{{ url('admin/daftar-admin/') }}" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+<form action="{{ url('superadmin/daftar-admin/') }}" method="GET" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
     @csrf
 <div class="input-group">
     <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
@@ -43,8 +43,8 @@
                 <td data-label="Cost">{{ $key->hp }}</td>
                  <td class="text-center justify-content-center align-self-center d-flex">
                     
-                    
-                    <form action="{{ url('admin/daftar-admin/'.$key->id) }}" method="POST" >
+                    <a class="btn btn-info" href="{{ route('daftar-admin.edit',$key->id)}}">Ubah</a>
+                    <form action="{{ url('superadmin/daftar-admin/'.$key->id) }}" method="POST" >
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">
                         <button type="submit" class="btn btn-danger ms-2">Delete</button>

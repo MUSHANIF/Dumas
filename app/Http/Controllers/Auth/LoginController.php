@@ -28,6 +28,9 @@ class LoginController extends Controller
         if (auth()->user()->level == 'ADMIN') {
             toastr()->success('Salam sehat!', 'Selamat datang admin!');
             return '/dashboard';
+        }elseif(auth()->user()->level == 'SUPERADMIN'){
+            toastr()->success('Salam sehat!', 'Selamat datang superadmin!');
+            return '/dashboardsuperadmin';
         }
         toastr()->success('Selamat datang!', 'Halo');
         return '/pengaduan/home';

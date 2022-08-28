@@ -69,6 +69,26 @@
                 
               </ul>
             </li>
+            @elsecan('superadmin')
+            
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Selamat Datang,{{ Auth::user()->name }}
+              </a>
+              <ul class="dropdown-menu bg-dark"  aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="dashboardsuperadmin">dahsboard!</a></li>
+                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                   {{ __('Logout') }}
+               </a>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
+              </li>
+                
+              </ul>
+            </li>
             @else
             <li class="nav-item">
                 <a class="btn btn-primary" href="{{ route('login') }}">Login</a>

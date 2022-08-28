@@ -218,6 +218,10 @@
             
 
             <!-- Nav Item - Tables -->
+
+    
+     
+@if (Auth::user()->level == 'ADMIN')
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ route('dashboard') }}">
                     <i class="bi bi-collection"></i>
@@ -231,17 +235,6 @@
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="/admin/daftar-masyarakat">
-                    <i class="bi bi-people-fill"></i>
-                    <span>List masyarakat</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/admin/daftar-admin">
-                    
-                    <i class="bi bi-person-fill"></i>
-                    <span>Admin</span></a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link" href="/admin/laporan">
                     
                     <i class="bi bi-check-square-fill"></i>
@@ -249,8 +242,24 @@
                     <span>Laporan Harian</span></a>
                     
             </li>
-
-
+            @elseif (Auth::user()->level == 'SUPERADMIN')
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/dashboardsuperadmin">
+                    <i class="bi bi-collection"></i>
+                    <span>Dashboard</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/superadmin/daftar-masyarakat">
+                    <i class="bi bi-people-fill"></i>
+                    <span>List masyarakat</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/superadmin/daftar-admin">
+                    
+                    <i class="bi bi-person-fill"></i>
+                    <span>Admin</span></a>
+            </li>
+            @endif
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 

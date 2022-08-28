@@ -34,6 +34,11 @@ Route::group(['middleware' => ['revalidate']], function () {
         Route::resource('pengaduan/home', pengaduanController::class);
         Route::resource('tanggapanuser', tanggapanuserController::class);
     });
+    Route::group(['middleware' => ['superadmin']], function () {
+          Route::get('/dashboardsuperadmin', [dashboardController::class, 'index'])->name('dashboardsuperadmin');
+        Route::resource('superadmin/daftar-admin', daftaradminController::class);
+        Route::resource('superadmin/daftar-masyarakat', daftarmasyarakatController::class);
+    });
     Route::group(['middleware' => ['admin']], function () {
         Route::resource('admin/home', adminController::class);
         Route::resource('admin/pengaduan', pengaduanadminController::class);
@@ -42,8 +47,6 @@ Route::group(['middleware' => ['revalidate']], function () {
         // Route::get('admin/index-sudah', 'sudahController::class@index')->name('sudah');
         // Route::resource('admin/tanggapan', tanggapanadminController::class);
         Route::resource('admin/tanggapan', tanggapanController::class);
-        Route::resource('admin/daftar-admin', daftaradminController::class);
-        Route::resource('admin/daftar-masyarakat', daftarmasyarakatController::class);
         Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
         Route::get('admin/laporan', [laporanController::class, 'index']);
         Route::get('admin/pdf/', [laporanController::class, 'pdf']);

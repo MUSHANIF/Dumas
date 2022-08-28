@@ -18,7 +18,7 @@ class daftaradminController extends Controller
         $cari = $request->cari;
         $datas =  DB::table('users')->where('level', '=', 'ADMIN')->where('name','like',"%".$cari."%")->get();
        
-        return view('admin.admin.index', [
+        return view('superadmin.admin.index', [
             'datas' => $datas,
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
@@ -33,7 +33,7 @@ class daftaradminController extends Controller
      */
     public function create()
     {
-        return view('admin.admin.create',[
+        return view('superadmin.admin.create',[
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
@@ -60,7 +60,7 @@ class daftaradminController extends Controller
         
         $model->save();
         toastr()->success('Berhasil di buat!', 'Sukses');
-        return redirect('admin/daftar-admin');
+        return redirect('superadmin/daftar-admin');
     }
 
     /**
@@ -82,11 +82,11 @@ class daftaradminController extends Controller
      */
     public function edit( $id)
     {
-        // $datas = User::find($id);
-        // return view('admin.admin.ubah', compact('datas'),[
-        //     'pending' => pengaduan::where('status', 'belum di Proses')->count(),
-        //     'success' => pengaduan::where('status', 'sudah di proses')->count(),
-        // ]);
+        $datas = User::find($id);
+        return view('superadmin.admin.ubah', compact('datas'),[
+            'pending' => pengaduan::where('status', 'belum di Proses')->count(),
+            'success' => pengaduan::where('status', 'sudah di proses')->count(),
+        ]);
     }
 
     /**
@@ -98,17 +98,17 @@ class daftaradminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // $model = User::find($id);
-        // $model->nik = $request->nik;
-        // $model->name = $request->name;
-        // $model->email = $request->email;
-        // $model->hp = $request->hp;
-        // $model->level = $request->opsi;
+        $model = User::find($id);
+        $model->nik = $request->nik;
+        $model->name = $request->name;
+        $model->email = $request->email;
+        $model->hp = $request->hp;
+        $model->level = $request->opsi;
         
         
-        // $model->save();
-        // toastr()->success('Berhasil di terupdate!', 'Sukses');
-        // return redirect('admin/daftar-admin');
+        $model->save();
+        toastr()->success('Berhasil di terupdate!', 'Sukses');
+        return redirect('superadmin/daftar-admin');
     }
 
     /**
@@ -122,6 +122,6 @@ class daftaradminController extends Controller
         $kantin = User::find($id);
         $kantin->delete();
         toastr()->info('Berhasil di hapus!', 'Sukses');
-        return redirect('admin/daftar-admin');
+        return redirect('superadmin/daftar-admin');
     }
 }
