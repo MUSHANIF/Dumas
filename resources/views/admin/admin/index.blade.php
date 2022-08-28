@@ -43,7 +43,7 @@
                 <td data-label="Cost">{{ $key->hp }}</td>
                  <td class="text-center justify-content-center align-self-center d-flex">
                     
-                    <a class="btn btn-info" href="{{ route('daftar-admin.edit',$key->id)}}">Ubah</a>
+                    
                     <form action="{{ url('admin/daftar-admin/'.$key->id) }}" method="POST" >
                         @csrf
                         <input type="hidden" name="_method" value="DELETE">

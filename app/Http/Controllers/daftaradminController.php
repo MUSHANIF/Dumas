@@ -82,11 +82,11 @@ class daftaradminController extends Controller
      */
     public function edit( $id)
     {
-        $datas = User::find($id);
-        return view('admin.admin.ubah', compact('datas'),[
-            'pending' => pengaduan::where('status', 'belum di Proses')->count(),
-            'success' => pengaduan::where('status', 'sudah di proses')->count(),
-        ]);
+        // $datas = User::find($id);
+        // return view('admin.admin.ubah', compact('datas'),[
+        //     'pending' => pengaduan::where('status', 'belum di Proses')->count(),
+        //     'success' => pengaduan::where('status', 'sudah di proses')->count(),
+        // ]);
     }
 
     /**
@@ -98,17 +98,17 @@ class daftaradminController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $model = User::find($id);
-        $model->nik = $request->nik;
-        $model->name = $request->name;
-        $model->email = $request->email;
-        $model->hp = $request->hp;
-        $model->level = $request->opsi;
+        // $model = User::find($id);
+        // $model->nik = $request->nik;
+        // $model->name = $request->name;
+        // $model->email = $request->email;
+        // $model->hp = $request->hp;
+        // $model->level = $request->opsi;
         
         
-        $model->save();
-        toastr()->success('Berhasil di terupdate!', 'Sukses');
-        return redirect('admin/daftar-admin');
+        // $model->save();
+        // toastr()->success('Berhasil di terupdate!', 'Sukses');
+        // return redirect('admin/daftar-admin');
     }
 
     /**
