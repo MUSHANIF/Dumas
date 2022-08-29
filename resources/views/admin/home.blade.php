@@ -197,11 +197,11 @@
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #256D85; color: black;">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/" style="color: black;">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/" style="color: white;">
                 <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
+                    <i class="bi bi-building"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3 ">dumas</div>
+                <div class="sidebar-brand-text mx-3 text-white ">dumas</div>
             </a>
 
             <!-- Divider -->
@@ -210,8 +210,7 @@
                 {{-- <div class="row">
                     <img src="/assets/avatar-7.jpg" alt="" class="avatar-md rounded-circle justify-content-center text-center align-content-center" style="width: 120px; margin-left: 64px;">
                 </div> --}}
-                <div class="mt-3">
-                    <h5 class="font-size-13 mb-1">{{ Auth::user()->name }}</h5>
+                <div class="mt-1">
                     <span class="text-success"><i class="bi bi-person-circle"></i> {{ Auth::user()->level }}</span>
                 </div>
             </div>
@@ -265,9 +264,9 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
-            <div class="text-center d-none d-md-inline">
+            {{-- <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div>
+            </div> --}}
 
             
 
@@ -429,8 +428,16 @@
     <script src="/js/demo/chart-pie-demo.js"></script>
     <script>
         @foreach($errors->all() as $error)
-            Notipin.Alert({msg: " {{ $error }} "});
+        Notipin.Alert({
+            msg: "{{ $error }}", // Pesan kamu
+            yes: "OKE", // Tulisan di tombol 'Yes'
+            
+            type: "NORMAL",
+            mode: "DARK",
+            })
+            
         @endforeach
+        
     </script>
 </body>
 
