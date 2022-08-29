@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\pengaduan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Validator;
 use Illuminate\Support\Facades\DB;
 
 class daftaradminController extends Controller
@@ -47,7 +48,7 @@ class daftaradminController extends Controller
      */
     public function store(Request $request)
     {
-
+        $data = $request->all();
         $model = new User;
         $password = $request->password;
         $encrypted_password = bcrypt($password);
@@ -58,6 +59,18 @@ class daftaradminController extends Controller
         $model->level = $request->level;
         $model->password = $encrypted_password;
         
+        $validasi = Validator::make($data,[
+            'nik'=>'required|max:16|min:16|unique:users',
+            'name'=>'required|max:20',
+            'email'=>'required|email|max:255|unique:users',
+            'password'=>'required|min:8',
+            'hp'=>'required|max:15',
+
+        ]);
+        if($validasi->fails())
+        {
+            return redirect()->route('daftar-admin.create')->withInput()->withErrors($validasi);
+        }
         $model->save();
         toastr()->success('Berhasil di buat!', 'Sukses');
         return redirect('superadmin/daftar-admin');
@@ -98,6 +111,7 @@ class daftaradminController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
         $model = User::find($id);
         $model->nik = $request->nik;
         $model->name = $request->name;
@@ -105,7 +119,18 @@ class daftaradminController extends Controller
         $model->hp = $request->hp;
         $model->level = $request->opsi;
         
-        
+        $validasi = Validator::make($data,[
+            'nik'=>'required|max:16|min:16',
+            'name'=>'required|max:20',
+            'email'=>'required|email|max:255',
+            'hp'=>'required|max:15',
+           
+
+        ]);
+        if($validasi->fails())
+        {
+            return redirect()->route('daftar-admin.edit',[$id])->withInput()->withErrors($validasi);
+        }
         $model->save();
         toastr()->success('Berhasil di terupdate!', 'Sukses');
         return redirect('superadmin/daftar-admin');

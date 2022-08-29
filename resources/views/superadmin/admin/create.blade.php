@@ -5,21 +5,21 @@
     
     <form action="{{ route('daftar-admin.store') }}" method="post" >
         @csrf
-         <div class="form-group">
-            <label for="formGroupExampleInput">NIK</label>
-            <input type="text" class="form-control" id="StoreID" name="nik" required>
+        <div class="form-group">
+            <label for="formGroupExampleInput">Nik</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="nik" value="{{ old('nik') }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">NAMA</label>
-            <input type="text" class="form-control" id="LocID" name="name" required>
+            <label for="formGroupExampleInput">Name</label>
+            <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="{{ old('name') }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">email</label>
-            <input type="email" class="form-control" id="LocID" name="email" required>
+            <label for="formGroupExampleInput2">Email</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="email" value="{{ old('email') }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">NO HP</label>
-            <input type="text" class="form-control" id="PriceID" name="hp" required>
+            <label for="formGroupExampleInput2">No-Hp</label>
+            <input type="text" class="form-control" id="formGroupExampleInput2" name="hp" value="{{ old('hp') }}">
         </div>
       
             <input type="hidden" class="form-control" id="ProdID" name="level" value="ADMIN" required>

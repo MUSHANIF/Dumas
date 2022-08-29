@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
     <link rel="icon" href="{{ asset('img/favicon.svg')}}">
     <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet">
+    <script src="https://cdn.statically.io/gh/devanka761/notipin/v1.24.49/all.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <style>
         * {
@@ -426,7 +427,11 @@
     <!-- Page level custom scripts -->
     <script src="/js/demo/chart-area-demo.js"></script>
     <script src="/js/demo/chart-pie-demo.js"></script>
-
+    <script>
+        @foreach($errors->all() as $error)
+            Notipin.Alert({msg: " {{ $error }} "});
+        @endforeach
+    </script>
 </body>
 
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\pengaduan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Validator;
 use Illuminate\Support\Facades\DB;
 
 class daftarmasyarakatController extends Controller
@@ -94,6 +95,7 @@ class daftarmasyarakatController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $data = $request->all();
         $model = User::find($id);
         $model->nik = $request->nik;
         $model->name = $request->name;
@@ -101,7 +103,19 @@ class daftarmasyarakatController extends Controller
         $model->hp = $request->hp;
         $model->level = $request->opsi;
         
-        
+        $validasi = Validator::make($data,[
+            'nik'=>'required|max:16|min:16',
+            'name'=>'required|max:20',
+            'email'=>'required|email|max:255',
+            'hp'=>'required|max:15',
+           
+           
+
+        ]);
+        if($validasi->fails())
+        {
+            return redirect()->route('daftar-masyarakat.edit',[$id])->withInput()->withErrors($validasi);
+        }
         $model->save();
         toastr()->success('Berhasil di terupdate!', 'Sukses');
         return redirect('superadmin/daftar-masyarakat');
