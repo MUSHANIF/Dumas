@@ -17,8 +17,10 @@ class pengaduanController extends Controller
      */
     public function index()
     {
-
-        return view('pengaduan.home');
+       
+        return view('pengaduan.home',[
+            'data' => pengaduan::where('userID', Auth::user()->id)->get(),
+        ]);
     }
 
     /**

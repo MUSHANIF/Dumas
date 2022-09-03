@@ -13,6 +13,7 @@ use App\Http\Controllers\laporanController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\sudahController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,4 +56,5 @@ Route::group(['middleware' => ['revalidate']], function () {
 });
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
+
 

@@ -198,10 +198,8 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/" style="color: white;">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="bi bi-building"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3 text-white ">dumas</div>
+               
+                <span><img src="/assets/logo1.png" alt="" style="width: 100px;"></span>
             </a>
 
             <!-- Divider -->

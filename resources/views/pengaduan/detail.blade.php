@@ -82,7 +82,7 @@
    <body>
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
          <div class="container">
-            <a class="navbar-brand" href="#">Dumas</a>
+            <a class="navbar-brand" href="/"><span><img src="/assets/logo1.png" alt="" style="width: 100px;"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
@@ -126,14 +126,14 @@
                            <h2 class="mt-4">NIK : {{ $ite->nik }}</h2>
                            --}}
                            <h5 class="mt-4">No Telepon : {{ $item->user->hp }}</h5>
-                           <h5 class="mt-4">Tanggal : {{ $ite->created_at->format('l, d F Y - H:i:s') }}</h5>
+                           <h5 class="mt-4">Tanggal : {{ $ite->created_at->format('l, d F Y ') }}</h5>
                            <h5 class="mt-4">
                               Status : @if($ite->status == 'belum di proses')
-                              <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-md dark:text-red-100 dark:bg-red-700"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded-md  text-white bg-danger"> {{ $ite->status }} </span>
                               @elseif ($ite->status == 'sedang di proses')
-                              <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-md dark:text-white dark:bg-orange-900"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded-md  text-white bg-warning"> {{ $ite->status }} </span>
                               @else
-                              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-md dark:bg-green-700 dark:text-green-100"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded-md  text-white bg-success"> {{ $ite->status }} </span>
                               @endif
                            </h5>
                         </div>
@@ -157,14 +157,14 @@
                               </div>
                            </div>
                            <div class="text-center flex dark:text-white-400 my-2">
-                              <h5 class="mb-8 font-semibold">Keterangan</h5>
+                              <h5 class="mb-8 font-semibold">Keluhan Anda</h5>
                               <p class="text-white dark:text-white m-auto">{{ $ite->laporan}}</p>
                            </div>
                         </div>
 
                         <div class="px-4 py-3 mb-3 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" style="background-color: #2f5463">
                            <div class="text-center d-flex flex-column justify-content-center align-items-center">
-                              <h5 class="text-center text-white mb-3">Tanggapan</h5>
+                              <h5 class="text-center text-white mb-3">Tanggapan oleh Petugas</h5>
                               <p class="text-light dark:text-gray-400 m-auto bg-dark px-2 py-1 rounded">@foreach ($pengaduan as $adu) {{ $adu->tanggapan }} @endforeach</p>
                            </div>
                         </div>

@@ -224,7 +224,7 @@
 
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
          <div class="container">
-            <a class="navbar-brand" href="#">Dumas</a>
+            <a class="navbar-brand" href="/"><span><img src="/assets/logo1.png" alt="" style="width: 100px;"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
@@ -274,15 +274,21 @@
 
                            <td data-label="Name">{{ $key->name }}</td>
                            <td data-label="Tanggal">{{ $key->created_at }}</td>
-                           <td data-label="Cost">
+                           
                               @if($key->status == 'belum di proses')
-                              <span class=""> {{ $key->status }} </span>
-                              @elseif ($key->status == 'sedang di proses')
-                              <span class=""> {{ $key->status }} </span>
-                              @else
-                              <span class=""> {{ $key->status }} </span>
-                              @endif
+                              <td data-label="Status">
+                              <span class="px-2 py-1 rounded-md  text-white bg-danger"> {{ $key->status }} </span>
                            </td>
+                              @elseif ($key->status == 'sedang di proses')
+                              <td data-label="Status">
+                              <span class="px-2 py-1 rounded-md  text-white bg-warning"> {{ $key->status }} </span>
+                           </td>
+                              @else
+                              <td data-label="Status">
+                              <span class="px-2 py-1 rounded-md  text-white bg-success"> {{ $key->status }} </span>
+                           </td>
+                              @endif
+                           
                            <td class="">
                               <form method="GET" action="{{ route('tanggapanuser.show', $key->id )}}">
                                  <button class="btn btn-info">lihat detail</button>

@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
 
 :root {
-    --purple: #814096;
-    --pink: #f83292;
+    --purple: #2B9880;
+    --pink: #57BAA4;
     --gradient: linear-gradient(100deg, var(--purple), var(--pink));
+    --logo: linear-gradient(100deg, #2AF598,#08AEEA);
     --gradient2: linear-gradient(67deg, #5164c9 0%, #d132c7 90%);
 }
 
@@ -15,11 +16,11 @@
 body {
     align-items: center;
     justify-content: center;
-    background-image: url(/assets/imagess/images/home-bg-img.png);
+    background-image: url(/assets/imagess/images/dumas.png);
     background-size: cover;
     background-position: top right;
     background-repeat: no-repeat;
-    background-size: 100vmax;
+    background-size: 90vmax;
 }
 
 body #navbar {
@@ -40,7 +41,7 @@ nav .btn {
     margin-left: 10px;
     padding: 5px 15px;
     border-radius: 4rem;
-    background: var(--gradient2);
+    background: var(--purple);
     font-size: 16px;
     color: white;
     cursor: pointer;
@@ -65,7 +66,7 @@ nav .logo span {
 }
 
 .navbar a:hover {
-    color: rgba(225, 225, 225);
+    color: white
 }
 
 nav .dropdown-item {

@@ -88,11 +88,19 @@ $tanggal = date("Y-m-d");
       @include('sweetalert::alert')
       <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
          <div class="container">
-            <a class="navbar-brand fs-3" href="#">Dumas</a>
+            <a class="navbar-brand fs-3" href="/"><span><img src="/assets/logo1.png" alt="" style="width: 100px;"></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
+               
+               @if ($data->isNotEmpty())
+               <a href="/" class="nav-container me-3 offset-lg-4" style="text-decoration: none; color: white;">Home</a>
+               |
+               <a href="{{ route('tanggapanuser.index') }}" class="nav-container ms-3" style="text-decoration: none; color: white;">List Pengaduan Anda</a>
+                
+               @endif
+               
                <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                      <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Selamat Datang,{{ Auth::user()->name }} </a>
@@ -130,22 +138,22 @@ $tanggal = date("Y-m-d");
                <div class="row mb-3">
                   <div class="col-md-6">
                      <label for="exampleFormControlTextarea1" class="form-label">NIK</label>
-                     <input class="form-control" type="text" disabled name="nik" value="{{ Auth::user()->nik }}" id="formFile" />
+                     <input class="form-control text-muted bg-grey" type="text" disabled name="nik" value="{{ Auth::user()->nik }}" id="formFile" />
                   </div>
                   <div class="col-md-6">
                      <label for="exampleFormControlTextarea1" class="form-label">Nama</label>
-                     <input class="form-control" type="text" disabled value="{{ Auth::user()->name }}" id="formFile" />
+                     <input class="form-control text-muted bg-grey"" type="text" disabled value="{{ Auth::user()->name }}" id="formFile" />
                   </div>
                </div>
 
                <div class="row mb-3">
                   <div class="col-md-6">
                      <label for="exampleFormControlTextarea1" class="form-label">Email</label>
-                     <input class="form-control" type="text" disabled name="nik" value="{{ Auth::user()->email }}" id="formFile" />
+                     <input class="form-control text-muted bg-grey"" type="text" disabled name="nik" value="{{ Auth::user()->email }}" id="formFile" />
                   </div>
                   <div class="col-md-6">
                      <label for="exampleFormControlTextarea1" class="form-label">No Handphone</label>
-                     <input class="form-control" type="text" disabled name="hp" value="{{ Auth::user()->hp }}" id="formFile" />
+                     <input class="form-control text-muted bg-grey"" type="text" disabled name="hp" value="{{ Auth::user()->hp }}" id="formFile" />
                      <input class="form-control" type="hidden" name="status" value="belum di proses" id="formFile" />
                   </div>
                </div>
@@ -166,11 +174,11 @@ $tanggal = date("Y-m-d");
             <button type="submit" class="btn btn-success mt-4 buttonS" style="background-color: #3ea376; color: white">Kirim</button>
             <button type="reset" class="btn btn-danger mt-4">Reset Pengaduan</button>
          </form>
-         <div class="row mt-5">
+         {{-- <div class="row mt-5">
             <div class="col justify-content-center text-center align-items-center">
                <a href="{{ route('tanggapanuser.index' )}}" class="btn btn-success buttonS" style="background-color: #3ea376; color: white; padding: 12px;">Aduan Anda </a>
             </div>
-         </div>
+         </div> --}}
       </div>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 

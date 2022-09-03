@@ -8,6 +8,7 @@ use App\Models\tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use PDF;
+use Alert;
 class laporanController extends Controller
 {
     public function index(Request $request)
@@ -20,7 +21,7 @@ class laporanController extends Controller
         ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
         ->orderBy('pengaduans.created_at','ASC')
         ->get();
-      
+        Alert::info('Pemberitahuan!', 'Jika ingin mencari data,klik cari data terlebih dahulu  sesuai tanggal yang benar!')->autoClose(false);
         return view('admin.laporan.index', [
             'pengaduan' => $pengaduan,
             'datas' => $datas,
