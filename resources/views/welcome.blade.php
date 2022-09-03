@@ -14,6 +14,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
   </head>
+  
   <body>
     <nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light bg-transparent">
       <div class="container">
@@ -252,7 +253,7 @@
   <footer class="text-center pb-3" id="footer">
     <p>Created with <i class="bi bi-heart-fill text-danger"> </i> By Dumas </p>
   </footer>
-
+  <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="ac360c40-fac3-4979-a4c0-e35334d3bc2b";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
