@@ -22,7 +22,7 @@
         * {
            box-sizing: border-box;
         }
-     
+
         .navbar {
            color: white;
            padding-bottom: 20px;
@@ -33,29 +33,39 @@
         .container label {
            color: white;
         }
-     
+
         .table {
            width: 100%;
         }
-     
+
         .table td,
         .table th {
            text-align: center;
            color: white;
         }
-     
+
+        .table thead {
+            background-color: #212529;
+        }
+        .table tbody{
+            background-color: #2C3034;
+        }
+        .table tbody:nth-child(even) {
+            background-color: #262a2e;
+        }
+
         .table th {
            /* background-color: #00bfff; */
            border: none;
         }
-     
-     
+
+
         /* Ini Responsivenya */
         @media (max-width: 768px) {
            .table thead {
               display: none;
            }
-     
+
            .table,
            .table tbody,
            .table tr,
@@ -63,16 +73,16 @@
               display: block;
               width: 100%;
            }
-     
+
            .table tr {
               margin-bottom: 15px;
            }
-     
+
            .table td {
               text-align: right;
               position: relative;
            }
-     
+
            .table td::before {
               content: attr(data-label);
               position: absolute;
@@ -84,12 +94,12 @@
               text-align: left;
            }
         }
-     
+
         @media (max-width: 500px) {
            .table thead {
               display: none;
            }
-     
+
            .table,
            .table tbody,
            .table tr,
@@ -97,16 +107,16 @@
               display: block;
               width: 100%;
            }
-     
+
            .table tr {
               margin-bottom: 15px;
            }
-     
+
            .table td {
               text-align: right;
               position: relative;
            }
-     
+
            .table td::before {
               content: attr(data-label);
               position: absolute;
@@ -118,39 +128,39 @@
               text-align: left;
            }
         }
-     
+
         /* End Responsive */
-     
+
         .title {
            color: #adadad;
            text-align: center;
         }
-     
+
         .subtitle a {
            color: white;
            text-decoration: none;
            float: left;
            padding-top: 1px;
         }
-     
+
         .subtitle a:hover {
            color: #dbd7e6;
            text-decoration: none;
         }
-     
+
         @media (max-width: 500px) {
            .subtitle a {
               font-size: 15px;
               padding-top: 3px;
            }
         }
-     
+
         @media (max-width: 768px) {
            .subtitle a {
               padding-top: 1px;
            }
         }
-     
+
         .btn {
            background-color: #2b87a6;
            color: white;
@@ -159,7 +169,7 @@
         .btn:hover {
            background-color: #227895;
         }
-     
+
         body {
            margin: 0;
            background-color: #3e7dbc;
@@ -211,11 +221,13 @@
            border-radius: 0 0 3px 3px;
         }
 
+
+
         .navbar > .container > .navbar-brand {
             color: white;
             text-shadow: 1px 1px 5px #0078aa;
          }
-     </style>     
+     </style>
       <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
    </head>
 
@@ -258,7 +270,7 @@
             <div class="table-responsive">
                <div class="container">
                   <h2 class="text-light text-center">List Aduan Anda</h2>
-                  <table class="table mt-3 table-striped text-light table-dark" cellpadding="10" cellspace="0">
+                  <table class="table mt-3 table-striped text-light" cellpadding="10" cellspace="0">
                      <thead class="">
                         <th class="text-light">Foto</th>
                         <th class="text-light">Nama</th>
@@ -270,26 +282,26 @@
 
                      <tbody>
                         <tr class="" style="border: 1px solid black">
-                           <td data-label="images"><img src="/assets/images/bukti/{{ $key->image }}" style="height: 100px; width: 150px" /></td>
+                           <td class="text-light" data-label="Images"><img src="/assets/images/bukti/{{ $key->image }}" style="height: 100px; width: 150px" /></td>
 
-                           <td data-label="Name">{{ $key->name }}</td>
-                           <td data-label="Tanggal">{{ $key->created_at }}</td>
-                           
+                           <td class="text-light" data-label="Name">{{ $key->name }}</td>
+                           <td class="text-light" data-label="Tanggal">{{ $key->created_at }}</td>
+
                               @if($key->status == 'belum di proses')
                               <td data-label="Status">
                               <span class="px-2 py-1 rounded-md  text-white bg-danger"> {{ $key->status }} </span>
                            </td>
                               @elseif ($key->status == 'sedang di proses')
-                              <td data-label="Status">
+                              <td class="text-light" data-label="Status">
                               <span class="px-2 py-1 rounded-md  text-white bg-warning"> {{ $key->status }} </span>
                            </td>
                               @else
-                              <td data-label="Status">
+                              <td class="text-light" data-label="Status">
                               <span class="px-2 py-1 rounded-md  text-white bg-success"> {{ $key->status }} </span>
                            </td>
                               @endif
-                           
-                           <td class="">
+
+                           <td class="text-light" data-label="Action">
                               <form method="GET" action="{{ route('tanggapanuser.show', $key->id )}}">
                                  <button class="btn btn-info">lihat detail</button>
                               </form>

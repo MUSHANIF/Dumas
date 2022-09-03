@@ -93,20 +93,18 @@ $tanggal = date("Y-m-d");
                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-center" id="navbarNavDropdown">
-               
+
                @if ($data->isNotEmpty())
                <a href="/" class="nav-container me-3 offset-lg-4" style="text-decoration: none; color: white;">Home</a>
                |
                <a href="{{ route('tanggapanuser.index') }}" class="nav-container ms-3" style="text-decoration: none; color: white;">List Pengaduan Anda</a>
-                
+
                @endif
-               
+
                <ul class="navbar-nav ms-auto">
                   <li class="nav-item dropdown">
                      <a class="nav-link text-white dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false"> Selamat Datang,{{ Auth::user()->name }} </a>
                      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="/">Kembali</a></li>
-
                         <li>
                            <a
                               class="dropdown-item"
@@ -135,7 +133,7 @@ $tanggal = date("Y-m-d");
                <input class="form-control" type="hidden" name="name" value="{{ Auth::user()->name }}" id="formFile" />
                <input class="form-control" type="hidden" name="tgl" value="{{ $tanggal }}" id="formFile" />
 
-               <div class="row mb-3">
+               <div class="row mb-3 ms-1">
                   <div class="col-md-6">
                      <label for="exampleFormControlTextarea1" class="form-label">NIK</label>
                      <input class="form-control text-muted bg-grey" type="text" disabled name="nik" value="{{ Auth::user()->nik }}" id="formFile" />
@@ -146,7 +144,7 @@ $tanggal = date("Y-m-d");
                   </div>
                </div>
 
-               <div class="row mb-3">
+               <div class="row mb-3 ms-1">
                   <div class="col-md-6">
                      <label for="exampleFormControlTextarea1" class="form-label">Email</label>
                      <input class="form-control text-muted bg-grey"" type="text" disabled name="nik" value="{{ Auth::user()->email }}" id="formFile" />
@@ -157,13 +155,13 @@ $tanggal = date("Y-m-d");
                      <input class="form-control" type="hidden" name="status" value="belum di proses" id="formFile" />
                   </div>
                </div>
-               <div class="row mb-3">
+               <div class="row mb-3 ms-1">
                   <div class="col">
                      <label for="exampleFormControlTextarea1" class="form-label">Keluhan</label>
                      <textarea class="form-control" id="exampleFormControlTextarea1" name="pengaduan" rows="3"></textarea>
                   </div>
                </div>
-               <div class="row mb-3">
+               <div class="row mb-3 ms-1">
                   <div class="col">
                      <label for="formFile" class="form-label">Foto Bukti</label>
                      <input class="form-control" type="file" name="image" id="image" />
