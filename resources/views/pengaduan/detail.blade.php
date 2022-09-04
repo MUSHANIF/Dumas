@@ -18,12 +18,13 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
       <link rel="icon" href="{{ asset('img/favicon.svg')}}" />
       <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+      {{-- <link href="/assets/css/tailwind.output.css" rel="stylesheet" /> --}}
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
       <style>
          body {
             margin: 0;
-            background-color: #3e7dbc;
+            background-color: #2B9880;
          }
          canvas {
             display: block;
@@ -127,13 +128,13 @@
                            --}}
                            <h5 class="mt-4">No Telepon : {{ $item->user->hp }}</h5>
                            <h5 class="mt-4">Tanggal : {{ $ite->created_at->format('l, d F Y ') }}</h5>
-                           <h5 class="mt-4">
+                           <h5 class="mt-4" style="border">
                               Status : @if($ite->status == 'belum di proses')
-                              <span class="px-2 py-1 rounded-md  text-white bg-danger"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded   text-white bg-danger"> {{ $ite->status }} </span>
                               @elseif ($ite->status == 'sedang di proses')
-                              <span class="px-2 py-1 rounded-md  text-white bg-warning"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded   text-white bg-warning"> {{ $ite->status }} </span>
                               @else
-                              <span class="px-2 py-1 rounded-md  text-white bg-success"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded  text-white bg-success"> {{ $ite->status }} </span>
                               @endif
                            </h5>
                         </div>

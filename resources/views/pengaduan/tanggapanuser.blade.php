@@ -17,6 +17,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
       <link rel="icon" href="{{ asset('img/favicon.svg')}}" />
       <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet" />
+      <link href="/assets/css/tailwind.output.css" rel="stylesheet" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
       <style>
         * {
@@ -41,17 +43,17 @@
         .table td,
         .table th {
            text-align: center;
-           color: white;
+           color: black;
         }
 
         .table thead {
-            background-color: #4CACBC;
+            background-color: #1C7293   ;
         }
         .table tbody{
-            background-color: #1C3879;
+            background-color: #006A71;
         }
         .table tbody:nth-child(even) {
-            background-color: #1C3879;
+            background-color: #006A71;
         }
 
         .table th {
@@ -137,7 +139,7 @@
         }
 
         .subtitle a {
-           color: white;
+           color: black;
            text-decoration: none;
            float: left;
            padding-top: 1px;
@@ -270,8 +272,8 @@
             <div class="table-responsive">
                <div class="container">
                   <h2 class="text-light text-center">List Aduan Anda</h2>
-                  <table class="table mt-3 table-striped text-light" cellpadding="10" cellspace="0">
-                     <thead class="">
+                  <table class="table mt-3 table-striped text-dark" cellpadding="10" cellspace="0">
+                     <thead class="" style="color: black" >
                         <th class="text-light">Foto</th>
                         <th class="text-light">Nama</th>
                         <th class="text-light">Tanggal</th>
@@ -289,15 +291,15 @@
 
                               @if($key->status == 'belum di proses')
                               <td data-label="Status">
-                              <span class="px-2 py-1 rounded-md  text-white bg-danger"> {{ $key->status }} </span>
+                              <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-md dark:text-red-100 dark:bg-red-700"> {{ $key->status }} </span>
                            </td>
                               @elseif ($key->status == 'sedang di proses')
                               <td class="text-light" data-label="Status">
-                              <span class="px-2 py-1 rounded-md  text-white bg-warning"> {{ $key->status }} </span>
+                              <span class="px-2 py-1 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-md dark:text-white dark:bg-orange-700"> {{ $key->status }} </span>
                            </td>
                               @else
                               <td class="text-light" data-label="Status">
-                              <span class="px-2 py-1 rounded-md  text-white bg-success"> {{ $key->status }} </span>
+                              <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-md dark:bg-green-700 dark:text-green-100"> {{ $key->status }} </span>
                            </td>
                               @endif
 
