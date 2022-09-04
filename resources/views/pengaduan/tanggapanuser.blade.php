@@ -45,13 +45,13 @@
         }
 
         .table thead {
-            background-color: #212529;
+            background-color: #4CACBC;
         }
         .table tbody{
-            background-color: #2C3034;
+            background-color: #1C3879;
         }
         .table tbody:nth-child(even) {
-            background-color: #262a2e;
+            background-color: #1C3879;
         }
 
         .table th {
@@ -172,7 +172,7 @@
 
         body {
            margin: 0;
-           background-color: #3e7dbc;
+           background-color: #2B9880;
         }
         canvas {
            display: block;
@@ -320,19 +320,18 @@
             </div>
          </div>
 
-         <!-- End of Content Wrapper -->
       </section>
-      <!-- End of Page Wrapper -->
 
-      <!-- Bootstrap core JavaScript-->
+
+  
       <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
       <script src="/vendor/jquery/jquery.min.js"></script>
       <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-      <!-- Core plugin JavaScript-->
+      
       <script src="/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-      <!-- Custom scripts for all pages-->
+     
       <script src="/js/sb-admin-2.min.js"></script>
 
       <!-- Page level plugins -->

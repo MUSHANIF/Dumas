@@ -13,7 +13,7 @@ $tanggal = date("Y-m-d");
       <style>
          body {
             margin: 0;
-            background-color: #3b75af;
+            background-color: #2B9880;
          }
          canvas {
             display: block;
@@ -24,7 +24,7 @@ $tanggal = date("Y-m-d");
             position: absolute;
             width: 100%;
             height: 100%;
-            background-color: #3b75af;
+            background-color: #2B9880;
             background-image: url("");
             background-repeat: no-repeat;
             background-size: cover;
@@ -172,11 +172,7 @@ $tanggal = date("Y-m-d");
             <button type="submit" class="btn btn-success mt-4 buttonS" style="background-color: #3ea376; color: white">Kirim</button>
             <button type="reset" class="btn btn-danger mt-4">Reset Pengaduan</button>
          </form>
-         {{-- <div class="row mt-5">
-            <div class="col justify-content-center text-center align-items-center">
-               <a href="{{ route('tanggapanuser.index' )}}" class="btn btn-success buttonS" style="background-color: #3ea376; color: white; padding: 12px;">Aduan Anda </a>
-            </div>
-         </div> --}}
+  
       </div>
       <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
