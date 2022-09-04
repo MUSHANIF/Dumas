@@ -27,6 +27,19 @@
     <script src="https://cdn.statically.io/gh/devanka761/notipin/v1.24.49/all.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous"/>
     <style>
+              #error {
+	height: 100vh;
+	padding-top: 10rem;
+	width: 100%;
+	background: #f9fbfd;
+  }
+#error .errors-titles {
+	font-size: 10rem;
+  }
+  
+#error p{
+	color: #888 !important;
+  }
         * {
             box-sizing: border-box;
          
@@ -190,33 +203,27 @@
 <body id="page-top" >
      @include('sweetalert::alert')
 
-    <!-- Page Wrapper -->
+
     <div id="wrapper">
 
-        <!-- Sidebar -->
+        
         <ul class="navbar-nav  sidebar sidebar-dark accordion" id="accordionSidebar" style="background-color: #256D85; color: black;">
 
-            <!-- Sidebar - Brand -->
+          
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/" style="color: white;">
                
                 <span><img src="/assets/logo1.png" alt="" style="width: 100px;"></span>
             </a>
 
-            <!-- Divider -->
+         
             <hr class="sidebar-divider my-0">
             <div class="user-profile text-center mt-3">
-                {{-- <div class="row">
-                    <img src="/assets/avatar-7.jpg" alt="" class="avatar-md rounded-circle justify-content-center text-center align-content-center" style="width: 120px; margin-left: 64px;">
-                </div> --}}
+               
                 <div class="mt-1">
                     <span class="text-success"><i class="bi bi-person-circle"></i> {{ Auth::user()->level }}</span>
                 </div>
             </div>
-            <!-- Nav Item - Dashboard -->
             
-
-            <!-- Nav Item - Tables -->
-
     
      
 @if (Auth::user()->level == 'ADMIN')
@@ -258,29 +265,24 @@
                     <span>Admin</span></a>
             </li>
             @endif
-            <!-- Divider -->
+            
             <hr class="sidebar-divider d-none d-md-block">
 
-            <!-- Sidebar Toggler (Sidebar) -->
-            {{-- <div class="text-center d-none d-md-inline">
-                <button class="rounded-circle border-0" id="sidebarToggle"></button>
-            </div> --}}
+        
 
             
 
         </ul>
-        <!-- End of Sidebar -->
-
-        <!-- Content Wrapper -->
+       
         <div id="content-wrapper" class="d-flex flex-column">
 
-            <!-- Main Content -->
+           
             <div id="content">
 
-                <!-- Topbar -->
+              
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
+                   
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
@@ -403,8 +405,8 @@
     <script>
         @foreach($errors->all() as $error)
         Notipin.Alert({
-            msg: "{{ $error }}", // Pesan kamu
-            yes: "OKE", // Tulisan di tombol 'Yes'
+            msg: "{{ $error }}", 
+            yes: "OKE",
             
             type: "NORMAL",
             mode: "DARK",

@@ -28,6 +28,7 @@ class pengaduanadminController extends Controller
             'datas' => $datas,
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
+            'coba' => pengaduan::where('status', 'belum di proses')->get(),
         ]);
        
     }

@@ -263,7 +263,7 @@
     <script>
       var typed = new Typed('.animate', {
   // Waits 1000ms after typing "First"
-  strings: ['Masyarakat'],
+  strings: ['Masyarakat','Penduduk'],
   typeSpeed: 100,
   backSpeed: 100,
   loop: true,

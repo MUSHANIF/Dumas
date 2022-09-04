@@ -21,9 +21,11 @@
 
    
 <div class="container">
+    @if ($datas->isNotEmpty())
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         Akun masyarakat
       </h2>
+    
     <table class="table mt-3" cellpadding="10" cellspace="0">
         <thead class="align-self-center text-center">
             
@@ -59,6 +61,17 @@
        
 
     </table>
+    @else
+    <div id="error">
+        <div class="container text-center">
+        <div class="pt-8">
+            <h1 class="errors-titles">404</h1>
+            <p>Data Kosong,tidak ada akun!</p>
+           
+          </div>
+        </div>
+    </div>
+          @endif
 </div>
     
 @endsection

@@ -21,7 +21,7 @@ class laporanController extends Controller
         ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
         ->orderBy('pengaduans.created_at','ASC')
         ->get();
-        Alert::info('Pemberitahuan!', 'Jika ingin mencari data,klik cari data terlebih dahulu  sesuai tanggal yang benar!')->autoClose(false);
+        Alert::info('Pemberitahuan!', 'Jika ingin mencari data,klik cari data terlebih dahulu  sesuai tanggal yang benar!,dan setelah itu akan muncul data nya.')->autoClose(false);
         return view('admin.laporan.index', [
             'pengaduan' => $pengaduan,
             'datas' => $datas,

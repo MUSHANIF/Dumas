@@ -19,7 +19,7 @@
 @endsection
 @section('isi')
 <div class="container">
-    
+    @if ($coba->isNotEmpty())
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         List Aduan
       </h2>
@@ -83,7 +83,17 @@
         @endif
         
         @endforeach
-       
+        @else
+        <div id="error">
+            <div class="container text-center">
+            <div class="pt-8">
+                <h1 class="errors-titles">404</h1>
+                <p>Data Kosong,tidak ada pengaduan!</p>
+               
+              </div>
+            </div>
+        </div>
+              @endif
 
     </table>
 </div>

@@ -44,17 +44,13 @@ Route::group(['middleware' => ['revalidate']], function () {
         Route::resource('admin/home', adminController::class);
         Route::resource('admin/pengaduan', pengaduanadminController::class);
         Route::resource('admin/index-sudah', sudahController::class);
-        // Route::get('admin/index-sudah', [sudahController::class, 'index'])->name('sudah');
-        // Route::get('admin/index-sudah', 'sudahController::class@index')->name('sudah');
-        // Route::resource('admin/tanggapan', tanggapanadminController::class);
         Route::resource('admin/tanggapan', tanggapanController::class);
         Route::get('/dashboard', [dashboardController::class, 'index'])->name('dashboard');
         Route::get('admin/laporan', [laporanController::class, 'index']);
         Route::get('admin/pdf/', [laporanController::class, 'pdf']);
-        // Route::get('/pdf', 'dashboardController@index')->name('dashboard');
     });
 });
 
-Route::get('/home', [HomeController::class, 'home'])->name('home');
+
 
 

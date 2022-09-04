@@ -19,6 +19,7 @@
 @endsection
 @section('isi')
 <div class="container">
+    @if ($datas->isNotEmpty())
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         List admin
       </h2>
@@ -57,6 +58,17 @@
        
 
     </table>
+    @else
+    <div id="error">
+        <div class="container text-center">
+        <div class="pt-8">
+            <h1 class="errors-titles">404</h1>
+            <p>Data Kosong,tidak ada akun!</p>
+           
+          </div>
+        </div>
+    </div>
+          @endif
 </div>
     
 @endsection
