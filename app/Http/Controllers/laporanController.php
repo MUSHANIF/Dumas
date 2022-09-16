@@ -27,6 +27,7 @@ class laporanController extends Controller
                 ->get();
         } else {
             $pengaduan =  DB::table('users')
+                ->where('pengaduans.update', '=', date('Y-m-d'))
                 ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
                 ->orderBy('pengaduans.update', 'ASC')
                 ->get();
