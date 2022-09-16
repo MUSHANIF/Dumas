@@ -40,33 +40,25 @@ class tanggapanController extends Controller
      */
     public function store(Request $request)
     {
-        DB::table('pengaduans')->where('id', $request->id)->update([
-            'status'=> $request->opsi,
-            'update'=> $request->tgl,
-            'created_at'=> $request->tgl,
+        DB::table('pengaduans')->where('id', $request->pengaduanID)->update([
+            'status' => $request->opsi,
+            'update' => $request->tgl,
+            'created_at' => $request->tgl,
         ]);
-        $datas = DB::table('tanggapans')->get();
-       
-        DB::table('tanggapans')->where('pengaduanID', $request->id)->update([
-           
+
+        if (empty(pengaduan::find($request->pengaduanID)->tanggapans)) {
+            $model = new tanggapan;
+            $model->pengaduanID = $request->pengaduanID;
+            $model->tanggapan = $request->laporan;
+            $model->update = $request->tgl;
+            $model->save();
+        }
+
+        DB::table('tanggapans')->where('pengaduanID', $request->pengaduanID)->update([
             'tanggapan' => $request->laporan,
-            'update'=> $request->tgl
+            'update' => $request->tgl
         ]);
 
-        $model = new tanggapan;
-        $model->pengaduanID = $request->id;
-        $model->tanggapan = $request->laporan;
-        $model->update = $request->tgl;
-        $model->save();
-        
-    
-
-           
-
-       
-       
-
-       
         toastr()->success('Berhasil di tanggapi!', 'Selamat');
         return redirect('admin/pengaduan');
     }
@@ -77,13 +69,15 @@ class tanggapanController extends Controller
      * @param  \App\Models\tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request ,$id)
+    public function show(Request $request, $id)
     {
         $tanggapan =  DB::table('tanggapans')->get();
-        $datas = pengaduan::with([
-            'details','tanggapans'
-        ])->findorFail($id);
-        return view('admin.tanggapan.index', compact('datas','tanggapan'),[
+
+        $datas = pengaduan::findOrFail($id);
+
+        // return $datas->tanggapans;
+
+        return view('admin.tanggapan.index', compact('datas'), [
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
@@ -95,7 +89,7 @@ class tanggapanController extends Controller
      * @param  \App\Models\tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         $datas = tanggapan::find($id);
         return view('admin.tanggapan.index', compact('datas'));
@@ -113,19 +107,19 @@ class tanggapanController extends Controller
         // $model = tanggapan::find($id);
         // $model->tanggapan = $request->laporan;
         // $model->update = $request->tgl;
-      
-        
-        
+
+
+
         // $model->save();
         DB::table('pengaduans')->where('id', $request->id)->update([
-            'status'=> $request->opsi,
-            'update'=> $request->tgl,
-            'created_at'=> $request->tgl,
+            'status' => $request->opsi,
+            'update' => $request->tgl,
+            'created_at' => $request->tgl,
         ]);
         DB::table('tanggapans')->where('pengaduanID', $request->id)->update([
-           
+
             'tanggapan' => $request->laporan,
-            'update'=> $request->tgl
+            'update' => $request->tgl
         ]);
         toastr()->success('Berhasil di tanggapi!', 'Selamat');
         return redirect('admin/index-sudah');

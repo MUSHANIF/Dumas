@@ -17,7 +17,7 @@ class tanggapanuserController extends Controller
      */
     public function index(Request $request)
     {
-        $datas = DB::table('pengaduans')->where('UserID', '=',  Auth::user()->id)->get();
+        $datas = DB::table('pengaduans')->where('UserID', '=',  Auth::user()->id)->latest()->get();
 
         return view('pengaduan.tanggapanuser', [
             'datas' => $datas,
@@ -63,11 +63,7 @@ class tanggapanuserController extends Controller
             ->groupBy('update')
             ->get();
 
-        return view('pengaduan.detail', compact('pengaduan'), [
-            'pengaduan' => $pengaduan,
-            'datas' => $datas,
-            'item' => $item,
-        ]);
+        return view('pengaduan.detail', compact('pengaduan', 'datas', 'item'));
     }
 
     /**

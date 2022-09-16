@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\pengaduan;
 use App\Models\pengaduanadmin;
 use App\Models\tanggapan;
@@ -19,10 +20,10 @@ class pengaduanadminController extends Controller
         $cari = $request->cari;
         $datas = DB::table('pengaduans')->get();
         $pengaduan =  DB::table('users')
-        ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
-        ->orderBy('pengaduans.created_at','ASC')
-        ->where('users.name','like',"%".$cari."%")
-        ->get();
+            ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
+            ->orderBy('pengaduans.created_at', 'ASC')
+            ->where('users.name', 'like', "%" . $cari . "%")
+            ->get();
         return view('admin.pengaduan.index', [
             'pengaduan' => $pengaduan,
             'datas' => $datas,
@@ -30,7 +31,6 @@ class pengaduanadminController extends Controller
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
             'coba' => pengaduan::where('status', 'belum di proses')->get(),
         ]);
-       
     }
 
     /**
@@ -40,7 +40,6 @@ class pengaduanadminController extends Controller
      */
     public function create()
     {
-       
     }
 
     /**
@@ -60,29 +59,28 @@ class pengaduanadminController extends Controller
      * @param  \App\Models\pengaduanadmin  $pengaduanadmin
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id )
+    public function show(Request $request, $id)
     {
         // $datas = DB::table('pengaduans')->get();
         $item = pengaduan::with([
-             'details','user'
+            'details', 'user'
         ])->findOrFail($id);
         $datas = DB::table('pengaduans')
-        ->where('id', '=', $id)
-        ->get();
+            ->where('id', '=', $id)
+            ->get();
         $pengaduan =  DB::table('tanggapans')
-        ->where('pengaduanID', '=', $id)
-        
-        ->get();
-  
+            ->where('pengaduanID', '=', $id)
+
+            ->get();
+
         return view('admin.pengaduan.detail', [
             'pengaduan' => $pengaduan,
             'datas' => $datas,
             'item' => $item,
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
-           
+
         ]);
-        
     }
 
     /**

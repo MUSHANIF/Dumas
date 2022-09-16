@@ -15,7 +15,7 @@ class CreateTanggapansTable extends Migration
     {
         Schema::create('tanggapans', function (Blueprint $table) {
             $table->id();
-            $table->integer('pengaduanID')->nullable();
+            $table->foreignId('pengaduanID')->references('id')->on('pengaduans')->onDelete('cascade');
             $table->string('tanggapan');
             $table->timestamps();
             $table->date('update')->nullable();

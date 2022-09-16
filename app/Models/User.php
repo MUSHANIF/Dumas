@@ -48,5 +48,4 @@ class User extends Authenticatable
     {
         return $this->hasMany(pengaduan::class, 'userID', 'id');
     }
-   
 }

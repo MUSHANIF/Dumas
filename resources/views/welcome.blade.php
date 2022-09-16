@@ -40,8 +40,8 @@
                 Selamat Datang,{{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="{{ route('dashboard') }}">Dashboard</a></li>
-                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                <li><a class="dropdown-item text-dark" href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li><a class="dropdown-item text-dark" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                    {{ __('Logout') }}
@@ -58,8 +58,8 @@
                 Selamat Datang,{{ Auth::user()->name }}
               </a>
               <ul class="dropdown-menu bg-dark"  aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="pengaduan/home">Keluhan!</a></li>
-                <li><a class="dropdown-item" href="{{ route('logout') }}"
+                <li><a class="dropdown-item text-dark" href="pengaduan/home">Keluhan!</a></li>
+                <li><a class="dropdown-item text-dark" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">
                    {{ __('Logout') }}

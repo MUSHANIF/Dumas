@@ -15,7 +15,7 @@ class CreatePengaduansTable extends Migration
     {
         Schema::create('pengaduans', function (Blueprint $table) {
             $table->id();
-            $table->integer('userID')->nullable();
+            $table->foreignId('userID')->references('id')->on('users')->onDelete('cascade');
             $table->string('name');
             $table->string('laporan');
             $table->string('image')->nullable();
