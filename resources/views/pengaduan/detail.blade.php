@@ -166,7 +166,11 @@
                         <div class="px-4 py-3 mb-3 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" style="background-color: #2f5463">
                            <div class="text-center d-flex flex-column justify-content-center align-items-center">
                               <h5 class="text-center text-white mb-3">Tanggapan oleh Petugas</h5>
+                              @if (!$pengaduan->isEmpty())
                               <p class="text-light dark:text-gray-400 m-auto bg-dark px-2 py-1 rounded">@foreach ($pengaduan as $adu) {{ $adu->tanggapan }} @endforeach</p>
+                              @else
+                              <p class="text-light dark:text-gray-400 m-auto px-2 py-1 rounded">-</p>
+                              @endif
                            </div>
                         </div>
                      </div>
