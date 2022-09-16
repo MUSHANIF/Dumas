@@ -27,6 +27,7 @@ class laporanController extends Controller
                 ->get();
         } else {
             $pengaduan =  DB::table('users')
+                ->where('pengaduans.update', '=', date('Y-m-d'))
                 ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
                 ->orderBy('pengaduans.update', 'ASC')
                 ->get();
@@ -54,7 +55,7 @@ class laporanController extends Controller
         $tgl = $request->tgl;
         $success = pengaduan::where('status', 'sudah di proses')->count();
         $pending = pengaduan::where('status', 'belum di Proses')->count();
-        $pengaduan = pengaduan::where('created_at', '=', $tgl)->get();
+        $pengaduan = pengaduan::where('update', '=', $tgl)->get();
 
         $pdf = PDF::loadview('admin.laporan.pdf', compact('pengaduan', 'pending', 'success'));
         return $pdf->download('laporan.pdf');
