@@ -161,7 +161,7 @@ $tanggal = date("Y-m-d");
                      <textarea class="form-control" id="exampleFormControlTextarea1" name="pengaduan" rows="3"></textarea>
                   </div>
                </div>
-               <div class="row mb-3 ms-1">
+               <div class="row mb-3 1">
                   <div class="col">
                      <label for="formFile" class="form-label">Foto Bukti</label>
                      <input class="form-control" type="file" name="image" id="image" />

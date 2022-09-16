@@ -13,6 +13,8 @@ use App\Http\Controllers\laporanController;
 use App\Http\Controllers\dashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\sudahController;
+use App\Http\Controllers\collectionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -34,6 +36,7 @@ Route::group(['middleware' => ['revalidate']], function () {
     Route::group(['middleware' => ['user']], function () {
         Route::resource('pengaduan/home', pengaduanController::class);
         Route::resource('tanggapanuser', tanggapanuserController::class);
+
     });
     Route::group(['middleware' => ['superadmin']], function () {
           Route::get('/dashboardsuperadmin', [dashboardController::class, 'index'])->name('dashboardsuperadmin');
@@ -49,6 +52,8 @@ Route::group(['middleware' => ['revalidate']], function () {
         Route::get('admin/laporan', [laporanController::class, 'index']);
         Route::get('admin/pdf/', [laporanController::class, 'pdf']);
     });
+ 
+
 });
 
 
