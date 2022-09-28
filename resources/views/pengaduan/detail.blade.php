@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
       <link rel="icon" href="{{ asset('img/favicon.svg')}}" />
       <link href="/assets/css/sb-admin-2.min.css" rel="stylesheet" />
-      {{-- <link href="/assets/css/tailwind.output.css" rel="stylesheet" /> --}}
+     {{--  <link href="/assets/css/tailwind.output.css" rel="stylesheet" /> --}}
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
       <style>
@@ -163,8 +163,24 @@
                            </div>
                         </div>
 
-                        <div class="px-4 py-3 mb-3 rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" style="background-color: #2f5463">
+                        <div class="px-4 py-3 mb-3 rounded-lg shadow text-white dark:text-gray-400 dark:bg-gray-800" style="background-color: #2f5463">
                            <div class="text-center d-flex flex-column justify-content-center align-items-center">
+                              <div class="relative hidden me-3 md:block dark:text-gray-400">
+                                 <h5 class="text-center mb-3 font-semibold">Foto Bukti dari petugas</h5>
+                                 <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <img class="w-100 mb-2" src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 300px; max-width: 450px; min-width: 100px;" /></a>
+                                 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-xl">
+                                       <div class="modal-content">
+                                          <div class="modal-header">
+                                             <h5 class="modal-title text-center justify-content-center text-dark" id="exampleModalLabel">Detail Foto</h5>
+                                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                          </div>
+                                          <div class="modal-body">
+                                             <img class="h-32 w-35" src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 100%; width: 100%" />
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
                               <h5 class="text-center text-white mb-3">Tanggapan oleh Petugas</h5>
                               @if (!$pengaduan->isEmpty())
                               <p class="text-light dark:text-gray-400 m-auto bg-dark px-2 py-1 rounded">@foreach ($pengaduan as $adu) {{ $adu->tanggapan }} @endforeach</p>

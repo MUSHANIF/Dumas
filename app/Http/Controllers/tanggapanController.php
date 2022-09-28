@@ -50,14 +50,31 @@ class tanggapanController extends Controller
             $model = new tanggapan;
             $model->pengaduanID = $request->pengaduanID;
             $model->tanggapan = $request->laporan;
+            $model->image = $request->image;
             $model->update = $request->tgl;
+            if ($image = $request->file('image')) {
+                $destinationPath = 'assets/images/tanggapan';
+                $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+                $image->move($destinationPath, $profileImage);
+                $model['image'] = "$profileImage";
+            }
             $model->save();
         }
+       
+        $datas =   pengaduan::find($request->pengaduanID)->tanggapans;
 
-        DB::table('tanggapans')->where('pengaduanID', $request->pengaduanID)->update([
-            'tanggapan' => $request->laporan,
-            'update' => $request->tgl
-        ]);
+        $datas->tanggapan = $request->laporanbaru;
+    
+        $datas->update = $request->tgl;
+     
+  
+    if ($image = $request->file('imagebaru')) {
+        $destinationPath = 'assets/images/tanggapan';
+        $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        $image->move($destinationPath, $profileImage);
+        $datas['image'] = "$profileImage";
+    }
+    $datas->save();
 
         toastr()->success('Berhasil di tanggapi!', 'Selamat');
         return redirect('admin/pengaduan');
@@ -116,11 +133,20 @@ class tanggapanController extends Controller
             'update' => $request->tgl,
             'created_at' => $request->tgl,
         ]);
-        DB::table('tanggapans')->where('pengaduanID', $request->id)->update([
+      $datas =   tanggapan::where('pengaduanID', $request->id);
 
-            'tanggapan' => $request->laporan,
-            'update' => $request->tgl
-        ]);
+            $datas->laporan = $request->laporan;
+            $datas->image = $request->imagebaru;
+            $datas->update = $request->tgl;
+         
+      
+        if ($image = $request->file('imagebaru')) {
+            $destinationPath = 'assets/images/tanggapan';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $datas['image'] = "$profileImage";
+        }
+        $datas->save();
         toastr()->success('Berhasil di tanggapi!', 'Selamat');
         return redirect('admin/index-sudah');
     }

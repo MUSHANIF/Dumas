@@ -17,6 +17,7 @@ class CreateTanggapansTable extends Migration
             $table->id();
             $table->foreignId('pengaduanID')->references('id')->on('pengaduans')->onDelete('cascade');
             $table->string('tanggapan');
+            $table->string('image')->nullable();
             $table->timestamps();
             $table->date('update')->nullable();
         });

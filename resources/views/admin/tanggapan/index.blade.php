@@ -15,11 +15,27 @@ $tanggal = date("Y-m-d");
           @if ($datas->tanggapans)
           <label for="exampleFormControlTextarea" class="form-label">Tanggapan Lama</label>
           <textarea class="form-control mb-2" id="exampleFormControlTextarea" disabled rows="3" required>{{ $datas->tanggapans->tanggapan }}</textarea>
-          @endif
+          <label for="exampleFormControlTextarea1" class="form-label">Tanggapan baru</label>
+          <textarea class="form-control" id="exampleFormControlTextarea1" name="laporanbaru" rows="3" required></textarea>
+         @else
           <label for="exampleFormControlTextarea1" class="form-label">Tanggapan</label>
           <textarea class="form-control" id="exampleFormControlTextarea1" name="laporan" rows="3" required></textarea>
+          @endif
         </div>
   </div>
+  <div class="row ">
+    <div class="col">
+      @if ($datas->tanggapans)
+       <label for="formFile" class="form-label">Foto Bukti baru</label>
+       <input class="form-control" type="file" name="imagebaru" id="image" />
+       <img id="preview-image-before-upload" src="" alt="" style="width: 250px" class="mt-3" />
+       @else
+       <label for="formFile" class="form-label">Foto Bukti</label>
+       <input class="form-control" type="file" name="image" id="image" />
+       <img id="preview-image-before-upload" src="" alt="" style="width: 250px" class="mt-3" />
+       @endif
+    </div>
+ </div>
   <div class="row">
       <div class="mb-3">
           <label for="formFile" class="form-label">Pilih status</label>
@@ -36,7 +52,21 @@ $tanggal = date("Y-m-d");
 </div>
 
 
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 
+<script type="text/javascript">
+   $(document).ready(function (e) {
+      $("#image").change(function () {
+         let reader = new FileReader();
+
+         reader.onload = (e) => {
+            $("#preview-image-before-upload").attr("src", e.target.result);
+         };
+
+         reader.readAsDataURL(this.files[0]);
+      });
+   });
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 @endsection

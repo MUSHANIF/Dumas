@@ -55,7 +55,7 @@ class sudahController extends Controller
     public function show(Request $request ,$id)
     {
         $item = pengaduan::with([
-            'details','user'
+            'details','user','tanggapans'
        ])->findOrFail($id);
        $datas = DB::table('pengaduans')
        ->where('id', '=', $id)
