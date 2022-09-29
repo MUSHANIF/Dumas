@@ -165,3 +165,17 @@ nav .dropdown-item {
 #footer {
     background-color: var(--pink);
 }
+@media screen and (max-width: 480px) {
+    #home h2 {
+        font-size: 50px !important;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #333;
+    }
+    
+    #home h2 span {
+        font-weight: 700;
+        color: var(--pink);
+        text-transform: uppercase;
+    }
+}
