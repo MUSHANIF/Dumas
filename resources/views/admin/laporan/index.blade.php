@@ -62,6 +62,7 @@ $tanggal = date("Y-m-d");
             {{-- {{ !empty($_GET["tgl"]) ? "pada " . $_GET['tgl'] : '' }} --}}
             {{ !empty($_GET["tgl"]) ? "pada " . date('d-M-Y', strtotime($_GET['tgl'])) : 'hari ini' }}
          </h2>
+         @if ($pengaduan->isNotEmpty())
          <table class="table mt-3" cellpadding="10" cellspace="0">
             <thead class="align-self-center text-center">
                <th class="text-light">Foto</th>
@@ -108,6 +109,29 @@ $tanggal = date("Y-m-d");
             @endif 
             @endforeach
          </table>
+         @else
+            @if (empty($_GET['tgl']))
+               <div id="error">
+                  <div class="container text-center">
+                     <div class="pt-8">
+                        <h1 class="errors-titles">404</h1>
+                        <p>Belum Ada Pengaduan yang Diselesaikan Hari Ini</p>
+                     </div>
+                  </div>
+               </div>
+            @else
+            <div id="error">
+               <div class="container text-center">
+                  <div class="pt-8">
+                     <h1 class="errors-titles">404</h1>
+                     <p>Tidak Ada Pengaduan yang Diselesaikan pada {{ date('d-M-Y', strtotime($_GET['tgl'])) }}</p>
+                  </div>
+               </div>
+            </div>
+            @endif
+         
+         @endif
+        
       </div>
 
       @endsection

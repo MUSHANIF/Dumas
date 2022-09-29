@@ -17,7 +17,7 @@ class laporanController extends Controller
     {
         // Alert::info('Pemberitahuan!', 'Jika ingin mencari data,klik cari data terlebih dahulu  sesuai tanggal yang benar!,dan setelah itu akan muncul data nya.')->autoClose(false);
         $tgl = $request->tgl;
-        $data = DB::table('tanggapans')->get();
+        // $data = DB::table('tanggapans')->get();
 
         if ($request->tgl) {
             $pengaduan =  DB::table('users')
@@ -33,9 +33,10 @@ class laporanController extends Controller
                 ->get();
         }
 
+
+        // return $pengaduan;
         return view('admin.laporan.index', [
             'pengaduan' => $pengaduan,
-            'data' => $data,
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
         ]);

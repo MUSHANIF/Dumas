@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\pengaduan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Hashids\Hashids;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 
 class pengaduanController extends Controller
 {
@@ -17,8 +16,8 @@ class pengaduanController extends Controller
      */
     public function index()
     {
-       
-        return view('pengaduan.home',[
+
+        return view('pengaduan.home', [
             'data' => pengaduan::where('userID', Auth::user()->id)->get(),
         ]);
     }

@@ -63,7 +63,7 @@
 
 
         /* Ini Responsivenya */
-        @media (max-width: 768px) {
+        @media (max-width: 990px) {
            .table thead {
               display: none;
            }
@@ -86,41 +86,7 @@
            }
 
            .table td::before {
-              content: attr(data-label);
-              position: absolute;
-              left: 0;
-              width: 50%;
-              padding-left: 15px;
-              font-size: 15px;
-              font-weight: bold;
-              text-align: left;
-           }
-        }
-
-        @media (max-width: 500px) {
-           .table thead {
-              display: none;
-           }
-
-           .table,
-           .table tbody,
-           .table tr,
-           .table td {
-              display: block;
-              width: 100%;
-           }
-
-           .table tr {
-              margin-bottom: 15px;
-           }
-
-           .table td {
-              text-align: right;
-              position: relative;
-           }
-
-           .table td::before {
-              content: attr(data-label);
+              content: "";
               position: absolute;
               left: 0;
               width: 50%;
@@ -230,7 +196,7 @@
                         <th class="text-light">Nama</th>
                         <th class="text-light">Tanggal</th>
                         <th class="text-light">Status</th>
-                        <th class="text-light" colspan="2">Action</th>
+                        <th class="text-light">Action</th>
                      </thead>
                      @foreach ($datas as $key)
 
@@ -239,7 +205,7 @@
                            <td class="text-light" data-label="Images"><img src="/assets/images/bukti/{{ $key->image }}" style="height: 100px; width: 150px" /></td>
 
                            <td class="text-light" data-label="Name">{{ $key->name }}</td>
-                           <td class="text-light" data-label="Tanggal">{{ $key->created_at }}</td>
+                           <td class="text-light" data-label="Tanggal">{{ date('d-M-Y', strtotime($key->created_at)) }}</td>
 
                               @if($key->status == 'belum di proses')
                               <td data-label="Status">

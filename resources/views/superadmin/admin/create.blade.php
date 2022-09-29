@@ -6,11 +6,11 @@
     <form action="{{ route('daftar-admin.store') }}" method="post" >
         @csrf
         <div class="form-group">
-            <label for="formGroupExampleInput">Nik</label>
+            <label for="formGroupExampleInput">NIK</label>
             <input type="text" class="form-control" id="formGroupExampleInput" name="nik" value="{{ old('nik') }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">Name</label>
+            <label for="formGroupExampleInput">Nama</label>
             <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="{{ old('name') }}">
         </div>
         <div class="form-group">
@@ -18,7 +18,7 @@
             <input type="text" class="form-control" id="formGroupExampleInput2" name="email" value="{{ old('email') }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">No-Hp</label>
+            <label for="formGroupExampleInput2">No HP</label>
             <input type="text" class="form-control" id="formGroupExampleInput2" name="hp" value="{{ old('hp') }}">
         </div>
       
@@ -34,18 +34,6 @@
     </form>
   </div>
 
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-
-
-
-
-
-
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 @endsection

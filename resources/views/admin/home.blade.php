@@ -126,6 +126,10 @@
             .subtitle a {
                padding-top: 1px;
             }
+
+            #error .errors-titles {
+               font-size: 7rem;
+            }
          }
 
          .btn {

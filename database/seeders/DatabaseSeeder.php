@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         pengaduan::create([
-            'userID' => 2,
+            'userID' => 3,
             'name' => 'Udin Bahrudin',
             'laporan' => 'ada pohon jatuh uy, mohon diangkat',
             'image' => '20220916102402.jpg',
@@ -70,7 +70,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         pengaduan::create([
-            'userID' => 2,
+            'userID' => 3,
             'name' => 'Udin Bahrudin',
             'laporan' => 'banjir masuk ke sekolah, tolong dibersihkan kali nya',
             'image' => '20220916102421.jpg',
@@ -79,7 +79,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         pengaduan::create([
-            'userID' => 3,
+            'userID' => 4,
             'name' => 'Wildan Gaming',
             'laporan' => 'aduh plafon sekolahan sudah berlubang, mohon bantuannya pak',
             'image' => '20220916102458.jpg',
@@ -88,7 +88,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         pengaduan::create([
-            'userID' => 3,
+            'userID' => 4,
             'name' => 'Wildan Gaming',
             'laporan' => 'jalanan berlubang bikin riweh sendiri kalo lagi naik motor',
             'image' => '20220916102519.jpg',
@@ -99,6 +99,7 @@ class DatabaseSeeder extends Seeder
         tanggapan::create([
             'pengaduanID' => 4,
             'tanggapan' => 'baik jalanan tersebut sudah diperbaiki',
+            'image' => '20220928025919.jpg',
             'update' => '2022-09-16'
         ]);
 

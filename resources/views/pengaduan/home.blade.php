@@ -98,7 +98,6 @@ $tanggal = date("Y-m-d");
                <a href="/" class="nav-container me-3 offset-lg-4" style="text-decoration: none; color: white;">Home</a>
                |
                <a href="{{ route('tanggapanuser.index') }}" class="nav-container ms-3" style="text-decoration: none; color: white;">List Pengaduan Anda</a>
-
                @endif
 
                <ul class="navbar-nav ms-auto">
@@ -157,11 +156,11 @@ $tanggal = date("Y-m-d");
                </div>
                <div class="row mb-3 ms-1">
                   <div class="col">
-                     <label for="exampleFormControlTextarea1" class="form-label">Keluhan</label>
+                     <label for="exampleFormControlTextarea1" class="form-label">Keluhan</label> 
                      <textarea class="form-control" id="exampleFormControlTextarea1" name="pengaduan" rows="3"></textarea>
                   </div>
                </div>
-               <div class="row mb-3 1">
+               <div class="row mb-3 ms-1">
                   <div class="col">
                      <label for="formFile" class="form-label">Foto Bukti</label>
                      <input class="form-control" type="file" name="image" id="image" />
@@ -169,7 +168,7 @@ $tanggal = date("Y-m-d");
                   </div>
                </div>
             </div>
-            <button type="submit" class="btn btn-success mt-4 buttonS" style="background-color: #3ea376; color: white">Kirim</button>
+            <button type="submit" class="btn btn-success mt-4 ms-3 buttonS" style="background-color: #3ea376; color: white">Kirim</button>
             <button type="reset" class="btn btn-danger mt-4">Reset Pengaduan</button>
          </form>
   

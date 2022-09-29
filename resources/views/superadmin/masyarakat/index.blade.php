@@ -21,7 +21,7 @@
 <div class="container">
     @if ($datas->isNotEmpty())
     <h2 class="text-2xl text-dark">
-        Akun masyarakat
+        Akun Masyarakat
       </h2>
     
     <table class="table mt-3" cellpadding="10" cellspace="0">

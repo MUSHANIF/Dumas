@@ -63,7 +63,7 @@ class pengaduanadminController extends Controller
     {
         // $datas = DB::table('pengaduans')->get();
         $item = pengaduan::with([
-            'details', 'user'
+            'user'
         ])->findOrFail($id);
         $datas = DB::table('pengaduans')
             ->where('id', '=', $id)

@@ -36,7 +36,7 @@
          <tr class="align-self-center text-center" style="border: 1px solid black">
             <td data-label="images"><img src="/assets/images/bukti/{{ $key->image }}" style="height: 100px; width: 150px" /></td>
             <td data-label="Name">{{ $key->name }}</td>
-            <td data-label="Tanggal">{{ $key->created_at }}</td>
+            <td data-label="Tanggal">{{ date('d-M-Y', strtotime($key->created_at)) }}</td>
             <td data-label="Cost">
                @if($key->status == 'belum di proses')
                <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-md dark:text-red-100 dark:bg-red-700"> {{ $key->status }} </span>

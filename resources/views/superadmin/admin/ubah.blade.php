@@ -7,19 +7,19 @@
         @csrf
             <input type="hidden" name="_method" value="PATCH">
         <div class="form-group">
-            <label for="formGroupExampleInput">nik</label>
+            <label for="formGroupExampleInput">NIK</label>
             <input type="text" class="form-control" id="formGroupExampleInput" name="nik" value="{{ $datas->nik }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput">name</label>
+            <label for="formGroupExampleInput">Nama</label>
             <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="{{ $datas->name }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">email</label>
+            <label for="formGroupExampleInput2">Email</label>
             <input type="text" class="form-control" id="formGroupExampleInput2" name="email" value="{{ $datas->email }}">
         </div>
         <div class="form-group">
-            <label for="formGroupExampleInput2">hp</label>
+            <label for="formGroupExampleInput2">No HP</label>
             <input type="text" class="form-control" id="formGroupExampleInput2" name="hp" value="{{ $datas->hp }}">
         </div>
         <label for="formFile" class="form-label">Ubah level</label>
@@ -33,16 +33,6 @@
     </form>
   </div>
 
-<!-- Optional JavaScript; choose one of the two! -->
-
-
-
-
-
-
-<!-- Optional JavaScript; choose one of the two! -->
-
-<!-- Option 1: Bootstrap Bundle with Popper -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-@endsection
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+  
+  @endsection

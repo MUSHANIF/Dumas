@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\pengaduan;
 use App\Models\pengaduanadmin;
 use App\Models\tanggapan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+
 class sudahController extends Controller
 {
     public function index(Request $request)
@@ -13,10 +15,10 @@ class sudahController extends Controller
         $cari = $request->cari;
         $datas = DB::table('pengaduans')->get();
         $pengaduan =  DB::table('users')
-        ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
-        ->orderBy('pengaduans.created_at','ASC')
-        ->where('users.name','like',"%".$cari."%")
-        ->get();
+            ->join('pengaduans', 'pengaduans.userID', '=', 'users.id')
+            ->orderBy('pengaduans.created_at', 'ASC')
+            ->where('users.name', 'like', "%" . $cari . "%")
+            ->get();
         return view('admin.pengaduan.indexsudah', [
             'pengaduan' => $pengaduan,
             'datas' => $datas,
@@ -24,7 +26,6 @@ class sudahController extends Controller
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
             'coba' => pengaduan::where('status', 'sedang di proses')->get(),
         ]);
-       
     }
     public function create()
     {
@@ -40,7 +41,7 @@ class sudahController extends Controller
     public function store(Request $request)
     {
         DB::table('tanggapans')->where('pengaduanID', $request->id)->update([
-           
+
             'tanggapan' => $request->laporan,
         ]);
         return redirect('admin/pengaduan');
@@ -52,20 +53,20 @@ class sudahController extends Controller
      * @param  \App\Models\tanggapan  $tanggapan
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request ,$id)
+    public function show(Request $request, $id)
     {
         $item = pengaduan::with([
-            'details','user','tanggapans'
-       ])->findOrFail($id);
-       $datas = DB::table('pengaduans')
-       ->where('id', '=', $id)
-       ->get();
-       $pengaduan = tanggapan::where('pengaduanID', $id)->first();
-       return view('admin.pengaduan.detailsudah', compact('datas','item','pengaduan'),[
-        'success' => pengaduan::where('status', 'sudah di proses')->count(),
+            'user', 'tanggapans'
+        ])->findOrFail($id);
+        $datas = DB::table('pengaduans')
+            ->where('id', '=', $id)
+            ->get();
+        $pengaduan = tanggapan::where('pengaduanID', $id)->first();
+        return view('admin.pengaduan.detailsudah', compact('datas', 'item', 'pengaduan'), [
+            'success' => pengaduan::where('status', 'sudah di proses')->count(),
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
-            
-       ]);
+
+        ]);
     }
 
     /**

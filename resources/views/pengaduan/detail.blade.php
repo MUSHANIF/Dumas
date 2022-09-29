@@ -120,21 +120,17 @@
 
                   <div class="w-full mb-8">
                      <div class="w-full overflow-x-auto">
-                        @foreach($item->details as $ite)
                         <div class="text-white px-4 py-4 mb-3 rounded-lg" style="background-color: #2f5463">
-                           <h5>Nama : {{ $ite->name }}</h5>
-                           {{--
-                           <h2 class="mt-4">NIK : {{ $ite->nik }}</h2>
-                           --}}
+                           <h5>Nama : {{ $item->name }}</h5>
                            <h5 class="mt-4">No Telepon : {{ $item->user->hp }}</h5>
-                           <h5 class="mt-4">Tanggal : {{ $ite->created_at->format('l, d F Y ') }}</h5>
+                           <h5 class="mt-4">Tanggal : {{ $item->created_at->format('l, d F Y ') }}</h5>
                            <h5 class="mt-4" style="border">
-                              Status : @if($ite->status == 'belum di proses')
-                              <span class="px-2 py-1 rounded   text-white bg-danger"> {{ $ite->status }} </span>
-                              @elseif ($ite->status == 'sedang di proses')
-                              <span class="px-2 py-1 rounded   text-white bg-warning"> {{ $ite->status }} </span>
+                              Status : @if($item->status == 'belum di proses')
+                              <span class="px-2 py-1 rounded   text-white bg-danger"> {{ $item->status }} </span>
+                              @elseif ($item->status == 'sedang di proses')
+                              <span class="px-2 py-1 rounded   text-white bg-warning"> {{ $item->status }} </span>
                               @else
-                              <span class="px-2 py-1 rounded  text-white bg-success"> {{ $ite->status }} </span>
+                              <span class="px-2 py-1 rounded  text-white bg-success"> {{ $item->status }} </span>
                               @endif
                            </h5>
                         </div>
@@ -142,7 +138,7 @@
                         <div class="px-4 py-3 mb-4 text-white rounded-lg text-center" style="background-color: #2f5463">
                            <div class="relative hidden me-3 md:block dark:text-gray-400">
                               <h5 class="text-center mb-3 font-semibold">Foto Bukti</h5>
-                              <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img class="w-100 mb-2" src="/assets/images/bukti/{{ $ite->image }}" style="height: 300px; max-width: 450px; min-width: 100px;" /></a>
+                              <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img class="w-100 mb-2" src="/assets/images/bukti/{{ $item->image }}" style="height: 300px; max-width: 450px; min-width: 100px;" /></a>
                               <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                  <div class="modal-dialog modal-xl">
                                     <div class="modal-content">
@@ -151,22 +147,22 @@
                                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                        </div>
                                        <div class="modal-body">
-                                          <img class="h-32 w-35" src="/assets/images/bukti/{{ $ite->image }}" style="height: 100%; width: 100%" />
+                                          <img class="h-32 w-35" src="/assets/images/bukti/{{ $item->image }}" style="height: 100%; width: 100%" />
                                        </div>
                                     </div>
                                  </div>
                               </div>
                            </div>
-                           <div class="text-center flex dark:text-white-400 my-2">
-                              <h5 class="mb-8 font-semibold">Keluhan Anda</h5>
-                              <p class="text-white dark:text-white m-auto">{{ $ite->laporan}}</p>
+                           <div class="text-center dark:text-white-400 my-2">
+                              <h5 class="mb-3 font-semibold">Keluhan Anda</h5>
+                              <p class="text-white dark:text-white m-auto"><span class="bg-dark px-2 py-1 rounded">{{ $item->laporan}}</span></p>
                            </div>
                         </div>
-
                         <div class="px-4 py-3 mb-3 rounded-lg shadow text-white dark:text-gray-400 dark:bg-gray-800" style="background-color: #2f5463">
                            <div class="text-center d-flex flex-column justify-content-center align-items-center">
                               <div class="relative hidden me-3 md:block dark:text-gray-400">
-                                 <h5 class="text-center mb-3 font-semibold">Foto Bukti dari petugas</h5>
+                              @if (!empty($item->tanggapans->image))
+                                 <h5 class="text-center mb-3 font-semibold">Foto Bukti dari Petugas</h5>
                                  <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <img class="w-100 mb-2" src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 300px; max-width: 450px; min-width: 100px;" /></a>
                                  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-xl">
@@ -181,6 +177,8 @@
                                        </div>
                                     </div>
                                  </div>
+                              @endif
+
                               <h5 class="text-center text-white mb-3">Tanggapan oleh Petugas</h5>
                               @if (!$pengaduan->isEmpty())
                               <p class="text-light dark:text-gray-400 m-auto bg-dark px-2 py-1 rounded">@foreach ($pengaduan as $adu) {{ $adu->tanggapan }} @endforeach</p>
@@ -190,7 +188,6 @@
                            </div>
                         </div>
                      </div>
-                     @endforeach
                   </div>
                </div>
             </div>

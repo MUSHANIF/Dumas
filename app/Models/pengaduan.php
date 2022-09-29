@@ -14,10 +14,6 @@ class pengaduan extends Model
     {
         return $this->belongsTo(user::class, 'userID', 'id');
     }
-    public function details()
-    {
-        return $this->hasMany(pengaduan::class, 'id');
-    }
     public function tanggapans()
     {
         return $this->hasOne(tanggapan::class, 'pengaduanID', 'id');
