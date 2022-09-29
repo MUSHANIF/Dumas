@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\pengaduan;
+
 use App\Models\User;
+use App\Models\pengaduan;
 use Illuminate\Http\Request;
-use Validator;
+use App\Models\pengaduanadmin;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class daftarmasyarakatController extends Controller
 {
@@ -17,14 +19,13 @@ class daftarmasyarakatController extends Controller
     public function index(Request $request)
     {
         $cari = $request->cari;
-        $datas =  DB::table('users')->where('level', '=', 'USER') ->where('name','like',"%".$cari."%")->get();
-       
+        $datas =  DB::table('users')->where('level', '=', 'USER')->where('name', 'like', "%" . $cari . "%")->get();
+
         return view('superadmin.masyarakat.index', [
             'datas' => $datas,
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
-       
     }
 
     /**
@@ -54,7 +55,7 @@ class daftarmasyarakatController extends Controller
         $model->hp = $request->hp;
         $model->level = $request->level;
         $model->password = $encrypted_password;
-        
+
         $model->save();
         toastr()->success('Berhasil di buat!', 'Sukses');
         return redirect('superadmin/daftar-masyarakat');
@@ -77,10 +78,10 @@ class daftarmasyarakatController extends Controller
      * @param  \App\Models\pengaduanadmin  $pengaduanadmin
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         $datas = User::find($id);
-        return view('superadmin.masyarakat.ubah', compact('datas'),[
+        return view('superadmin.masyarakat.ubah', compact('datas'), [
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
@@ -102,19 +103,18 @@ class daftarmasyarakatController extends Controller
         $model->email = $request->email;
         $model->hp = $request->hp;
         $model->level = $request->opsi;
-        
-        $validasi = Validator::make($data,[
-            'nik'=>'required|max:16|min:16',
-            'name'=>'required|max:20',
-            'email'=>'required|email|max:255',
-            'hp'=>'required|max:15',
-           
-           
+
+        $validasi = Validator::make($data, [
+            'nik' => 'required|max:16|min:16',
+            'name' => 'required|max:20',
+            'email' => 'required|email|max:255',
+            'hp' => 'required|max:15',
+
+
 
         ]);
-        if($validasi->fails())
-        {
-            return redirect()->route('daftar-masyarakat.edit',[$id])->withInput()->withErrors($validasi);
+        if ($validasi->fails()) {
+            return redirect()->route('daftar-masyarakat.edit', [$id])->withInput()->withErrors($validasi);
         }
         $model->save();
         toastr()->success('Berhasil di terupdate!', 'Sukses');
@@ -127,7 +127,7 @@ class daftarmasyarakatController extends Controller
      * @param  \App\Models\pengaduanadmin  $pengaduanadmin
      * @return \Illuminate\Http\Response
      */
-    public function destroy( $id)
+    public function destroy($id)
     {
         $kantin = User::find($id);
         $kantin->delete();

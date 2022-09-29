@@ -1,11 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\pengaduan;
+
 use App\Models\User;
+use App\Models\pengaduan;
 use Illuminate\Http\Request;
-use Validator;
+use App\Models\pengaduanadmin;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class daftaradminController extends Controller
 {
@@ -17,14 +19,13 @@ class daftaradminController extends Controller
     public function index(Request $request)
     {
         $cari = $request->cari;
-        $datas =  DB::table('users')->where('level', '=', 'ADMIN')->where('name','like',"%".$cari."%")->get();
-       
+        $datas =  DB::table('users')->where('level', '=', 'ADMIN')->where('name', 'like', "%" . $cari . "%")->get();
+
         return view('superadmin.admin.index', [
             'datas' => $datas,
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
-       
     }
 
     /**
@@ -34,7 +35,7 @@ class daftaradminController extends Controller
      */
     public function create()
     {
-        return view('superadmin.admin.create',[
+        return view('superadmin.admin.create', [
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
@@ -58,17 +59,16 @@ class daftaradminController extends Controller
         $model->hp = $request->hp;
         $model->level = $request->level;
         $model->password = $encrypted_password;
-        
-        $validasi = Validator::make($data,[
-            'nik'=>'required|max:16|min:16|unique:users',
-            'name'=>'required|max:20',
-            'email'=>'required|email|max:255|unique:users',
-            'password'=>'required|min:8',
-            'hp'=>'required|max:15',
+
+        $validasi = Validator::make($data, [
+            'nik' => 'required|max:16|min:16|unique:users',
+            'name' => 'required|max:20',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:8',
+            'hp' => 'required|max:15',
 
         ]);
-        if($validasi->fails())
-        {
+        if ($validasi->fails()) {
             return redirect()->route('daftar-admin.create')->withInput()->withErrors($validasi);
         }
         $model->save();
@@ -93,10 +93,10 @@ class daftaradminController extends Controller
      * @param  \App\Models\pengaduanadmin  $pengaduanadmin
      * @return \Illuminate\Http\Response
      */
-    public function edit( $id)
+    public function edit($id)
     {
         $datas = User::find($id);
-        return view('superadmin.admin.ubah', compact('datas'),[
+        return view('superadmin.admin.ubah', compact('datas'), [
             'pending' => pengaduan::where('status', 'belum di Proses')->count(),
             'success' => pengaduan::where('status', 'sudah di proses')->count(),
         ]);
@@ -118,18 +118,17 @@ class daftaradminController extends Controller
         $model->email = $request->email;
         $model->hp = $request->hp;
         $model->level = $request->opsi;
-        
-        $validasi = Validator::make($data,[
-            'nik'=>'required|max:16|min:16',
-            'name'=>'required|max:20',
-            'email'=>'required|email|max:255',
-            'hp'=>'required|max:15',
-           
+
+        $validasi = Validator::make($data, [
+            'nik' => 'required|max:16|min:16',
+            'name' => 'required|max:20',
+            'email' => 'required|email|max:255',
+            'hp' => 'required|max:15',
+
 
         ]);
-        if($validasi->fails())
-        {
-            return redirect()->route('daftar-admin.edit',[$id])->withInput()->withErrors($validasi);
+        if ($validasi->fails()) {
+            return redirect()->route('daftar-admin.edit', [$id])->withInput()->withErrors($validasi);
         }
         $model->save();
         toastr()->success('Berhasil di terupdate!', 'Sukses');

@@ -23,11 +23,11 @@
    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">List Aduan</h2>
    <table class="table mt-3" cellpadding="10" cellspace="0">
       <thead class="align-self-center text-center">
-         <th>Foto</th>
-         <th>Nama</th>
-         <th>Tanggal</th>
-         <th>Status</th>
-         <th colspan="2">Action</th>
+         <th class="text-light">Foto</th>
+         <th class="text-light">Nama</th>
+         <th class="text-light">Tanggal</th>
+         <th class="text-light">Status</th>
+         <th class="text-light">Action</th>
       </thead>
 
       @foreach ($pengaduan as $key) 

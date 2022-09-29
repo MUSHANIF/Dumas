@@ -36,7 +36,6 @@ Route::group(['middleware' => ['revalidate']], function () {
     Route::group(['middleware' => ['user']], function () {
         Route::resource('pengaduan/home', pengaduanController::class);
         Route::resource('tanggapanuser', tanggapanuserController::class);
-
     });
     Route::group(['middleware' => ['superadmin']], function () {
         Route::get('/dashboardsuperadmin', [dashboardController::class, 'index'])->name('dashboardsuperadmin');
@@ -52,6 +51,4 @@ Route::group(['middleware' => ['revalidate']], function () {
         Route::get('admin/laporan', [laporanController::class, 'index']);
         Route::get('admin/pdf/', [laporanController::class, 'pdf']);
     });
- 
-
 });

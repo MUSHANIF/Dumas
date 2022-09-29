@@ -9,9 +9,6 @@
             @foreach($item->details as $ite)
             <div class="text-gray-800 text-sm font-semibold px-4 py-4 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-200 dark:text-gray-100">
                <h5>Nama : {{ $ite->name }}</h5>
-               {{--
-               <h2 class="mt-4">NIK : {{ $ite->nik }}</h2>
-               --}}
                <h5 class="mt-4">No Telepon : {{ $item->user->hp }}</h5>
                <h5 class="mt-4">Tanggal : {{ $ite->created_at->format('l, d F Y') }}</h5>
                <h5 class="mt-4">
@@ -25,10 +22,10 @@
                </h5>
             </div>
 
-            <div class="px-4 py-3 mb-8 flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">
-               <div class="relative hidden mr-3 md:block dark:text-gray-400">
+            <div class="px-4 py-3 mb-8 block md:flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">
+               <div class="relative mr-3 dark:text-gray-400">
                   <h5 class="text-center mb-8 font-semibold">Foto Bukti</h5>
-                  <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img class="h-32 w-35" src="/assets/images/bukti/{{ $ite->image }}" style="height: 300px; width: 450px" /></a>
+                  <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"> <img src="/assets/images/bukti/{{ $ite->image }}" style="height: 300px; width: 450px" alt="Bukti Pengguna"/></a>
                   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-xl">
                         <div class="modal-content">
@@ -37,13 +34,14 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
                            <div class="modal-body">
-                              <img class="h-32 w-35" src="/assets/images/bukti/{{ $ite->image }}" style="height: 100%; width: 100%" />
+                              <img src="/assets/images/bukti/{{ $ite->image }}" style="height: 100%; width: 100%" />
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="text-center flex-1 dark:text-gray-400">
+               
+               <div class="text-center flex-1 mx-auto mt-3 md:mt-0">
                   <h5 class="mb-8 font-semibold">Keterangan</h5>
                   <p class="text-gray-800 dark:text-gray-400">{{ $ite->laporan}}</p>
                </div>
@@ -51,10 +49,11 @@
 
             @if (!empty($pengaduan->tanggapan))
 
-            <div class="px-4 py-3 mb-8 flex bg-white rounded-lg shadow-md border dark:text-gray-400 dark:bg-gray-800">
-               <div class="relative hidden mr-3 md:block dark:text-gray-400">
-                  <h5 class="text-center mb-8 font-semibold">Foto Bukti dari petugas</h5>
-                  <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <img class="h-32 w-35" src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 300px; width: 450px" /></a>
+            <div class="px-4 py-3 mb-8 block md:flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">
+               @if (!empty($pengaduan->tanggapan->image))
+               <div class="relative mr-3 dark:text-gray-400">
+                  <h5 class="text-center mb-8 font-semibold">Foto Bukti dari Petugas</h5>
+                  <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal1"> <img src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 300px; width: 450px" alt="Bukti Petugas"/></a>
                   <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                      <div class="modal-dialog modal-xl">
                         <div class="modal-content">
@@ -63,17 +62,19 @@
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                            </div>
                            <div class="modal-body">
-                              <img class="h-32 w-35" src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 100%; width: 100%" />
+                              <img src="/assets/images/tanggapan/{{ $item->tanggapans->image }}" style="height: 100%; width: 100%" />
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="text-center flex-1 mx-auto">
+               @endif
+               <div class="text-center flex-1 mx-auto mt-3 md:mt-0">
                   <h5 class="mb-8 font-semibold">Tanggapan</h5>
                   <p class="text-gray-800 dark:text-gray-400">{{ $pengaduan->tanggapan }}</p>
                </div>
             </div>
+            
          </div>
       </div>
       @endif {{--
@@ -85,7 +86,8 @@
       --}}
    </div>
 </main>
-@if ($ite->status == "sudah di proses") @else
+@if ($ite->status == "sudah di proses")
+@else
 <div class="text-center justify-center my-6">
    <a href="{{ route('tanggapan.show',$ite->id) }}" class="btn btn-warning px-3 py-3"> Berikan Tanggapan </a>
 </div>
