@@ -13,11 +13,11 @@
 @endsection 
 
 @section("button")
-<a href="{{ route('index-sudah.index') }}" class="d-none d-sm-inline-block btn btn-sm text-white shadow-sm" style="background-color: #256d85"> Sedang di proses</a>
+<a href="{{ route('index-sudah.index') }}" class="d-inline-block btn btn-sm text-white shadow-sm" style="background-color: #256d85"> Sedang di proses</a>
 @endsection 
 
 @section('isi')
-<div class="container">
+<div>
    @if ($coba->isNotEmpty())
 
    <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">List Aduan</h2>
